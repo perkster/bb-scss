@@ -1,0 +1,239 @@
+/************ Theme / Objects / SLIDER ***********/
+$bp_Slider : '<600px';
+%slider {
+
+	
+	/* Copy the following lines and customize to your @extend class
+	
+	@extend %slider;
+	
+	width: 100%;
+	height: 500px;
+	@include media('<lap') {
+		height: 30vh;
+	}
+	
+	
+	.slide__image {
+		width: 100%; 
+		height: 500px;
+		@include media('<lap') {
+			height: 30vh;
+		}
+	}
+	
+	*/
+	position: relative;
+	overflow: hidden;
+	
+	.slide {
+		width: 100%;
+		opacity: 0;
+		transition: opacity .25s ease-in-out;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 0;
+		&.active {
+			opacity: 1;
+			z-index: 50;
+		}
+	}
+	
+	.slide__image {
+		object-fit: cover; 
+
+	}
+	.slider-control--next, .slider-control--prev {
+		position: absolute;
+		top: 50%;
+		transform: translate(0, -50%);
+		z-index: 100;
+		border-bottom: 0;
+		&:hover {
+			border-bottom: 0;
+		}
+		
+		//Copy and customize these lines if needed
+		color: white;
+		font-size: 10vh;
+		font-family: FontAwesome; 
+		@include media($bp_Slider) {
+			font-size: 3vh;
+		}
+	}
+	.slider-control--prev {
+		left: 0;
+		content: '\f054';
+	}
+	.slider-control--next {
+		right: 0;
+		content: '\f053';
+	}
+	.slide__text--wrapper {
+		overflow: hidden;
+		position: absolute;
+		margin: 1rem;
+		@include media($bp_Slider) {
+			margin: 0.5rem auto;
+			width: 80%;
+		}
+	}
+	.slide__text {
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+	
+	.text-background--white {
+		.slide__text {
+			background-color: rgba(255,255,255,0.5);
+			padding: 1rem;
+			@include media($bp_Slider) {
+				padding: 0.5rem;
+			}	
+		}
+	}
+	.text-background--gray {
+		.slide__text {
+			background-color: rgba(0,0,0,0.5);
+			padding: 1rem;
+			color: white;
+			@include media($bp_Slider) {
+				padding: 0.5rem;
+			}	
+		}
+	}
+	
+	.text-align--top {
+		.slide__text--wrapper {
+			top: 0;
+		}
+	}
+	.text-align--top-center {
+		.slide__text--wrapper {
+			top: 0;  /* position the bottom edge of the element at the top of the parent */
+			left: 50%; /* position the left edge of the element at the middle of the parent */
+			transform: translate(-50%, 0); 
+			@include media($bp_Slider) {
+				left: 0rem;
+				transform: translate(0, 0);
+			}
+		}
+	}
+	.text-align--top-right {
+		.slide__text--wrapper {
+			top: 0;  /* position the bottom edge of the element at the top of the parent */
+			right: 0; /* position the left edge of the element at the middle of the parent */
+			
+		}
+	}
+	.text-align--top-left {
+		.slide__text--wrapper {
+			top: 0;  /* position the bottom edge of the element at the top of the parent */
+			left: 0; /* position the left edge of the element at the middle of the parent */
+		}
+	}
+	
+	.text-align--center {
+		.slide__text--wrapper {
+			top: 50%;  /* position the top  edge of the element at the middle of the parent */
+			left: 50%; /* position the left edge of the element at the middle of the parent */
+			transform: translate(-50%, -50%); 
+			@include media($bp_Slider) {
+				left: 1rem;
+				transform: translate(0rem, -2rem);
+			}
+		}
+	}
+	.text-align--center-left {
+		.slide__text--wrapper {
+			top: 50%;  /* position the top  edge of the element at the middle of the parent */
+			left: 0; /* position the left edge of the element at the middle of the parent */
+			transform: translate(-50%, -50%); 
+			@include media($bp_Slider) {
+				left: 0rem;
+				transform: translate(0, 0);
+			}
+		}
+	}
+	.text-align--center-right {
+		.slide__text--wrapper {
+			top: 50%;  /* position the top  edge of the element at the middle of the parent */
+			right: 0; /* position the left edge of the element at the middle of the parent */
+			transform: translate(-50%, -50%); 
+			@include media($bp_Slider) {
+				left: 0rem;
+				transform: translate(0, 0);
+			}
+		}
+	}
+	
+	.text-align--bottom {
+		.slide__text--wrapper {
+			bottom: 0;
+		}
+	}
+	.text-align--bottom-center {
+		.slide__text--wrapper {
+			bottom: 0;  /* position the bottom edge of the element at the bottom of the parent */
+			left: 50%; /* position the left edge of the element at the middle of the parent */
+			transform: translate(-50%, 0); 
+			@include media($bp_Slider) {
+				left: 0rem;
+				transform: translate(-0.5rem, 0);
+				width: 100%;
+			}
+		}
+	}
+	.text-align--bottom-right {
+		.slide__text--wrapper {
+			bottom: 0;  /* position the bottom edge of the element at the bottom of the parent */
+			right: 0; /* position the left edge of the element at the middle of the parent */
+			//transform: translate(-50%, -50%); 
+		}
+	}
+	.text-align--bottom-left {
+		.slide__text--wrapper {
+			bottom: 0;  /* position the bottom edge of the element at the bottom of the parent */
+			left: 0; /* position the left edge of the element at the middle of the parent */
+			//transform: translate(-50%, -50%); 
+		}
+	}
+
+	@include media($bp_Slider) {
+		
+		.slide__text {
+			font-size: 1rem!important;
+			p {
+				font-size: 1rem!important;
+			}
+			h2 {
+				font-size: 1rem!important;
+			}
+			h1 {
+				font-size: 1rem!important;
+			}
+		}
+	}
+}
+.slider-title {
+	font-family: $heading-font;
+	font-size: 2rem;
+	line-height: 1em;
+	margin-bottom: 0;
+	@include media($bp_Slider) {
+		font-size: 1rem;
+	}
+	
+}
+.slider-title--white {
+	@extend .slider-title;
+	color: white;
+}
+#tinymce {
+	.slider-title--white {
+		 -webkit-text-stroke: 1px gray;
+	}
+}
+

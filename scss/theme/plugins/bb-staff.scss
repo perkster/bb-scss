@@ -1,0 +1,37 @@
+/********************  Theme / Plugins / BB SOCIAL SHARE  ******************/
+
+.main-content--bb_staff {
+	
+}
+.bb_staff-list__item {
+	display: block;
+	@extend %bb-cf;
+	border-bottom: thin solid $accentColor;
+	margin-bottom: 2rem;
+	.bb_staff-list__image {
+		width: 30%;
+	}
+	.bb_staff-list__text {
+		width: 70%;
+		padding: 0 2rem;
+	}
+	&:nth-of-type(odd) {
+		.bb_staff-list__image {
+			float: left;
+		}
+		.bb_staff-list__text {
+			float: right;
+		}
+	}
+	&:nth-of-type(even) {
+		.bb_staff-list__image {
+			float: right;
+		}
+		.bb_staff-list__text {
+			float: left;
+		}
+	}
+	&:last-of-type {
+		border-bottom: 0;
+	}
+}

@@ -1,0 +1,62 @@
+/********************  Bear Bones / Base / WORDPRESS-GALLERY ******************/
+
+.gallery-columns-2 {
+	.gallery-item {
+		width: percentage(1/2);
+	}
+}
+.gallery-columns-4 {
+	.gallery-item {
+		width: percentage(1/4);
+	}
+}
+.gallery-columns-3 {
+	.gallery-item {
+		width: percentage(1/3);
+	}
+}
+.gallery-columns-4 {
+	.gallery-item {
+		width: percentage(1/4);
+	}
+}
+.gallery-columns-5 {
+	.gallery-item {
+		width: percentage(1/5);
+	}
+}
+.gallery-columns-6 {
+	.gallery-item {
+		width: percentage(1/6);
+	}
+}
+.gallery-columns-7 {
+	.gallery-item {
+		width: percentage(1/7);
+	}
+}
+.gallery-columns-8 {
+	.gallery-item {
+		width: percentage(1/8);
+	}
+}
+.gallery-columns-9 {
+	.gallery-item {
+		width: percentage(1/9);
+	}
+}
+.gallery {
+	.gallery-item {
+		margin: 0;
+		padding: 5px;
+		float: left;
+		display: block;
+	}
+	a {
+		border-bottom: 0;
+		display: block;
+	}
+	img {
+		display: block;
+	}
+}

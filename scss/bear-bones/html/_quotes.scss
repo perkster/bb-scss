@@ -1,0 +1,148 @@
+/********************  Bear Bones / Html / QUOTES ******************/
+
+//** If English quotes are set in `_vars.scss`, define them here. */
+
+$bb-html-quotes: false!default;
+@if ($bb-html-quotes == true) {
+	
+	$open-quote:    map-get($bb-quotes, 'open');
+    $close-quote:   map-get($bb-quotes, 'close');
+	$inside-open-quote:    map-get($bb-quotes, 'inside-open');
+    $inside-close-quote:   map-get($bb-quotes, 'inside-close');
+
+	/** Inline quotes. */
+	q{
+		quotes: "#{$open-quote}" "#{$close-quote}" "#{$inside-open-quote}" "#{$inside-close-quote}" ;
+		hanging-punctuation: first;
+
+		&:before{
+			content: "#{$open-quote}";
+			content:open-quote;
+		}
+		&:after{
+			content:"#{$close-quote}";
+			content:close-quote;
+		}
+
+		q:before{
+			content:"#{$inside-open-quote}";
+			content:open-quote;
+		}
+		q:after{
+			content:"#{$inside-close-quote}";
+			content:close-quote;
+		}
+	}
+	
+	
+
+	blockquote{
+		background-color: map-get($bb-quotes, 'bgc');
+		border: map-get($bb-quotes, 'border');
+		margin: map-get($bb-quotes, 'margin');
+		padding: map-get($bb-quotes, 'padding');
+		@if(map-get($bb-quotes, 'round') == true){
+			@extend %#{$namespace}-brand-round;
+		}
+		p, code, cite, .source {
+			display: block;
+		}
+		&> :nth-child(n){
+			//@extend %vr--half;
+		}
+		&> :last-child{
+			margin-bottom:0;
+		}
+	}
+
+	blockquote p, cite, .source {
+		display: block;
+		//@extend %vr--half;
+	}
+
+	%#{$namespace}-source {
+		text-indent:0;
+		
+		&:before{
+			content:"\2014 ";
+		}
+	}
+	%#{$namespace}-blockquote-left {
+		border-left: 3px solid map-deep-get($bb-quotes, 'left', 'border-color');
+		background-color: map-deep-get($bb-quotes, 'left', 'bgc');
+	}
+	
+	%#{$namespace}-blockquote-left--thick {
+		background-color: map-deep-get($bb-quotes, 'left--thick', 'bgc');
+		border-style: solid;
+		border-left-width: 0.5em;
+		border-top-width: thin;
+		border-right-width: thin;
+		border-bottom-width: thin;
+		border-color: map-deep-get($bb-quotes, 'left--thick', 'border-color');
+		@extend %#{$namespace}-#{map-deep-get($bb-quotes, 'left--thick', 'spacing')};
+		p {
+			display: inline-block;
+		}
+	}
+
+	//** Big up @boblet: html5doctor.com/blockquote-q-cite */
+	%#{$namespace}-open-quote--outside {
+		@extend blockquote;
+		//quotes: "“" "/201C";
+		//margin-left: 2.95em;
+		margin-left: map-deep-get($bb-quotes, 'outside-quote', 'box-margin-left');
+		margin-right: map-deep-get($bb-quotes, 'outside-quote', 'box-margin-right');		
+		&:before {
+			display: block;
+			height: map-deep-get($bb-quotes, 'outside-quote', 'height');
+			//content: "“";
+			content: map-get($bb-quotes, 'open');
+			font-family: map-deep-get($bb-quotes, 'outside-quote', 'family');
+			font-size: map-deep-get($bb-quotes, 'outside-quote', 'size');
+			font-style: map-deep-get($bb-quotes, 'outside-quote', 'style');
+			margin-top: map-deep-get($bb-quotes, 'outside-quote', 'mt');
+			margin-right: map-deep-get($bb-quotes, 'outside-quote', 'mr');
+			margin-left: map-deep-get($bb-quotes, 'outside-quote', 'ml');
+			color: map-deep-get($bb-quotes, 'outside-quote', 'color');
+		}
+	}
+	
+	//https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
+	%#{$namespace}-open-quote--inside {
+		@extend blockquote;
+		margin-left: map-deep-get($bb-quotes, 'inside-quote', 'box-margin-left');
+		margin-right: map-deep-get($bb-quotes, 'inside-quote', 'box-margin-right');	
+		p {
+			display: inline;			
+		}
+		&:before {
+			content: map-get($bb-quotes, 'open');
+			font-family: map-deep-get($bb-quotes, 'inside-quote', 'family');
+			font-size: map-deep-get($bb-quotes, 'inside-quote', 'size');
+			font-style: map-deep-get($bb-quotes, 'inside-quote', 'style');
+			margin-top: map-deep-get($bb-quotes, 'inside-quote', 'mt');
+			margin-right: map-deep-get($bb-quotes, 'inside-quote', 'mr');
+			margin-left: map-deep-get($bb-quotes, 'inside-quote', 'ml');
+			color: map-deep-get($bb-quotes, 'inside-quote', 'color');
+			line-height: 0.1em;
+			vertical-align: -0.4em;			
+		}
+	}
+}
+
+$bb-test-quotes: false!default;
+@if ($bb-test-quotes == true) {
+	/*Quote Test*/
+	.quote--inside {
+		@extend %bb-blockquote-left--thick;
+		@extend %bb-open-quote--inside;
+		@extend %bb-brand-round;
+	}
+	.quote--outside {
+		@extend %bb-blockquote-left;
+		@extend %bb-open-quote--outside;
+		//background-color: #f9f9f9;
+		//border-color: #ccc;
+	}
+}

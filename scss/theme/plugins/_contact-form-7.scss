@@ -1,0 +1,22 @@
+/************ Theme / Objects / CONTACT FORM 7 ***********/
+
+//Props to http://chriswharton.me/2013/07/contact-form-7-custom-styling/ for the good styling
+//
+
+.screen-reader-response {
+	@extend %bb-accessibility;
+}
+
+.wpcf7-validation-errors, .wpcf7-mail-sent-ng, .wpcf7-mail-sent-ok ,  {
+	@extend %bb-islet;
+}
+
+//Error
+.wpcf7-validation-errors, .wpcf7-mail-sent-ng, span.wpcf7-not-valid-tip {
+	@include bb_colorMap($map-name : 'light-red', $border-width: thin, $border-style: solid, $border-important : !important);
+}
+
+//Success
+.wpcf7-mail-sent-ok {
+	@include bb_colorMap($map-name : 'light-green', $border-width: thin, $border-style: solid);
+}

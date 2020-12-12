@@ -1,0 +1,79 @@
+/********************  Bear Bones / Base / ACCESSIBILITY ******************/
+
+	//**
+	//* Accessibility classes:
+	//* Taken from  http://webaim.org/techniques/css/invisiblecontent/ 
+	//* http://a11yproject.com/posts/how-to-hide-content/
+	//* Hides content off screen without resorting to negative text indent. Good for rtl, too
+	//*/
+
+@mixin bb-accessibility{
+	position: absolute;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0;
+	border:0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	&:focus { 
+		position:relative; 
+		width:auto; 
+		height:auto; 
+	}
+}
+
+@if ($bb-base-accessibility == true) {
+	
+	//**
+	// * Useful links for referencing
+	// * Don't use outline: none unless ABSOLUTELY necessary http://www.outlinenone.com/
+	// * Don't use title tags on links: http://blog.silktide.com/2013/01/i-thought-title-text-improved-accessibility-i-was-wrong/
+	// * Practical aria examples: http://heydonworks.com/practical_aria_examples/#input-tooltip
+	// */
+
+	%#{$namespace}-accessibility {
+		@include bb-accessibility;
+	}
+	.accessibility,
+	.visuallyhidden, .screen-reader-text, .skiplink, .screen-reader-response {
+		@extend %#{$namespace}-accessibility;
+	}
+	
+	.skiplink {
+		//position: absolute!important;
+		top: -1000em;
+		&:focus {
+			left: 6px;
+			  top: 7px;
+			  height: auto;
+			  width: auto;
+			  display: block;
+			  font-size: 14px;
+			  font-weight: 700;
+			  padding: 15px 23px 14px;
+			  background: #f1f1f1;
+			  color: #21759b;
+			  z-index: 100000;
+			  line-height: normal;
+			  text-decoration: none;
+			  box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+		}
+	}
+	
+	input:focus + [role="tooltip"] {
+		display: block;
+		position: absolute;
+		top: 100%;
+	}
+	
+	%#{$namespace}-img-replace {
+	  display: inline-block;
+	  overflow: hidden;
+	  text-indent: 100%;
+	  color: transparent;
+	  white-space: nowrap;
+	}
+}
+
+

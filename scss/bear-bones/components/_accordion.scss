@@ -1,0 +1,79 @@
+/********************  Bear Bones / Components / ACCORDION ******************/
+@mixin bb_Accordion ( $place : 'after', $icon: 'toggle-down', $iconActive: 'toggle-up', $padding : 0.25em, $position : relative ) {
+		> .accordion__title {
+			@include bb_fontAwesome(	
+				$place : $place, 
+				$icon : $icon, 
+				$font-size : 1rem,
+				$padding : $padding,  
+				//$color : $mayaBlue, 
+				$position: $position,
+				$top : (-0.15rem)
+			);
+		}
+		> .accordion__title.current {
+			@include bb_fontAwesome(	
+				$place : 'after', 
+				$icon : $iconActive, 
+				$position: $position,
+				$top : (-0.15rem)
+			);
+		}
+}
+
+@if ($bb-components-accordion == true) {
+	%#{$namespace}-accordion {
+		
+		@if (map-has-keys($bb-accordion, 'container')) {
+				@include print(map-deep-get($bb-accordion, 'container'));
+			}
+		
+		// title
+		> .accordion__title {
+			@if (map-has-keys($bb-accordion, 'title')) {
+				@include print(map-deep-get($bb-accordion, 'title'));
+			}
+			cursor:pointer;
+		}
+		> .accordion__title.current {
+			cursor:default;
+			@if (map-has-keys($bb-accordion, 'title--current')) {
+				@include print(map-deep-get($bb-accordion, 'title--current'));
+			}
+			+ .accordion__content {
+				@if (map-has-keys($bb-accordion, 'content--current')) {
+					@include print(map-deep-get($bb-accordion, 'content--current'));
+				}
+			}
+		}
+		//content
+		> .accordion__content {
+			@if (map-has-keys($bb-accordion, 'content')) {
+				@include print(map-deep-get($bb-accordion, 'content'));
+			}
+			
+		}
+	}
+	
+	%#{$namespace}-accordion-icon-arrows--right {
+		@extend %#{$namespace}-accordion;
+		@include bb_Accordion( $place: 'after', $icon : 'toggle-down', $iconActive : 'toggle-up' );
+	}
+	%#{$namespace}-accordion-icon-arrows--left {
+		@extend %#{$namespace}-accordion;
+		@include bb_Accordion( $place: 'before', $icon : 'toggle-down', $iconActive : 'toggle-up' );
+	}
+	%#{$namespace}-accordion-chevron--right {
+		@extend %#{$namespace}-accordion;
+		@include bb_Accordion( $place: 'after', $icon : 'chevron-down', $iconActive : 'chevron-left' );
+	}
+	%#{$namespace}-accordion-chevron--left {
+		@extend %#{$namespace}-accordion;
+		@include bb_Accordion( $place: 'before', $icon : 'chevron-down', $iconActive : 'chevron-right' );
+	}
+}
+
+
+
+// NOTES
+// dd/dt option https://css-tricks.com/snippets/jquery/simple-jquery-accordion/

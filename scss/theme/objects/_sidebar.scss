@@ -1,0 +1,54 @@
+/************ Theme / Objects / SIDEBAR ***********/
+
+
+.sidebar-wrapper {
+	@include media('>lap') {
+		float: left;
+		width: 30%;
+		.sidebar {
+			padding: 1rem;
+		}
+	}
+}
+
+.sidebar--posts, .sidebar--pages {
+	padding: 1rem;
+	section {
+		padding: 1rem;
+		background-color: $_lighterGrey;
+		border: thin solid $_lightGrey;
+		margin-bottom: 1rem;
+		img {
+			width: 100%;
+		}
+	}
+}
+
+.sidebar__title {
+	//font-weight: bold;
+	font-size: 1.5rem;
+	line-height: 1.25em;
+}
+.pages-widget__title {
+	text-transform: uppercase;
+	font-size: 1.7rem;
+	text-align: center;
+}
+.sidebar__sep {
+	width: 30%;
+	border-top: 1px solid $accentColor;
+}
+.sidebar__title {
+	text-align: center;
+	.next-line {
+		display: block;
+		font-weight: bold;
+	}
+}
+
+.sidebar__button {
+	text-align: center;
+	a {
+		@extend %bb-button;
+	}
+}

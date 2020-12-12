@@ -1,0 +1,32 @@
+/************ Theme / Objects / SOCIAL FEED ***********/
+.social-feed-wrapper {
+	@extend .full-width-wrapper;
+	background-color: $aluminum;
+	background-image: url('images/social_media_background.jpg');
+	padding-bottom: 1em;
+	
+}
+.social-feed-inner {
+	@extend .full-width-inner;
+	padding: 1em 0;
+}
+.social-feed {
+	section {
+		@include gallery( 1 of 2 );
+		background-color: rgba( 255, 255, 255, 0.8);
+		padding: 1em;
+	}	
+	
+	//Facebook
+	.widget-1 {
+		max-height: 475px;
+		overflow-y: auto;
+		h3 {
+			margin-bottom: 0.75em;
+		}
+	}
+	//Twitter
+	.widget-2 {
+		
+	}
+}

@@ -1,0 +1,61 @@
+/************ Theme / WooCommerce / PRODUCT ***********/
+
+.woocommerce {
+	ul.products {
+		padding-left: 0rem;
+	}
+	li.product {
+		list-style-type: none;
+		a {
+			border-bottom: thin solid transparent;
+			&:hover {
+				border-bottom: thin solid transparent;
+			}
+		}
+	}
+}
+
+.single-product {
+	max-width: $maxWidth;
+	margin: 1rem auto;
+	position: relative;
+	width: 100%;
+
+	.post-meta--top {
+		display: none;
+	}
+	.woocommerce-product-gallery__trigger {
+		position: absolute;
+		display: block;
+		border-bottom: 0;
+		left: 12.5%;
+		top: 11rem;
+	}
+	figure {
+		float: left;
+		margin: 0 1rem 0 0;
+		width: 25%;
+		a {
+			border-bottom: 0;
+		}
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+	.summary {
+		float: left;
+		width: 50%;
+	}
+
+	.woocommerce-tabs, .product_meta {
+		clear: both;
+		display: none;
+	}
+	.price {
+		font-weight: bold;
+		font-size: 1.25em;
+	}
+	.quantity {
+		margin-bottom: 1rem;
+	}

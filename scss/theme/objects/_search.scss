@@ -1,0 +1,28 @@
+/************ Theme / Objects / SEARCH *************/
+
+.searchform-input-wrapper {
+	@extend %#{$namespace}-fa-search-after;
+	color : map-get($bb-forms, 'placeholder-color');
+	width: 2em;
+	&:after {
+		margin-right: 0.5em;
+		z-index: 20;
+		right: 0;
+	}
+	label {
+		margin-right: 2em;
+		display: none;
+	}
+	.searchform__input {
+		//padding-left: 2em;
+	}
+}
+.search-collapsed {
+	//width: 2em;
+}
+.search-expanded {
+	width: auto;
+	label {
+		display: block;
+	}
+}

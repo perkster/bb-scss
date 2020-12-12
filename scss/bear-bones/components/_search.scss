@@ -1,0 +1,25 @@
+/********************  Bear Bones / Components / SEARCH ******************/
+@if ($bb-components-search == true) {
+
+	%#{$namespace}-fa-search-after {
+		//Usually used on .searchform-input-wrapper
+		@extend %#{$namespace}-fa-base;
+		@include bb_fontAwesome($place : 'after', $icon : 'search', $padding-right : 0.25em, $top : 0.2em, $position: (absolute));
+		input {
+			width: 100%;
+		}
+	}
+	%#{$namespace}-fa-search-before {
+		//Usually used on .searchform-input-wrapper
+		@extend %#{$namespace}-fa-base;
+		@include bb_fontAwesome($place : 'before', $icon : 'search', $padding-right : 0.25em, $top : 0.2em, $position : (absolute));
+		input {
+			width: 100%;
+		}
+	}
+}
+
+
+@if ($bb-test-search == true) {
+	
+}

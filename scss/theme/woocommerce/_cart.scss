@@ -1,0 +1,101 @@
+/************ Theme / WooCommerce / CART ***********/
+
+.woocommerce-cart  {
+
+	
+	.content--page {
+		max-width: $maxWidth;
+		margin: 1rem auto;
+		margin-bottom: 2rem;
+		background-color: white;
+		padding: 1rem;
+		border: thin solid $scriptBlue;
+	}
+	
+	.woocommerce-cart-form {
+		width: 100%;
+		table {
+			width: 100%;
+			text-align: center;
+		}
+		thead {
+
+		}
+		tr {
+		
+		}
+		.product-remove {
+			max-width: 10px;
+			width: 5%;
+			a {
+				visibility: hidden;
+				@include bb_fontAwesome(	
+					$place : 'after', 
+					$icon : 'trash', 
+					$font-size : 1rem,
+					$padding-left : 0.25em,  
+					$color : $accentColor, 
+					$position: relative,
+					$top : (-0.15rem)
+				);
+				&:after {
+					visibility: visible;
+				}
+			}
+		}
+		.product-thumbnail {
+			max-width: 125px;
+			width: 20%;
+			padding: 1rem;
+			img {
+				max-width: 100%;
+			}
+			a {
+				border-bottom: 0;
+			}
+		}
+		.product-name {
+			width: 50%;
+			text-align: left;
+			dt {
+				display: inline-block;
+			}
+		}
+		.product-price {
+			width: 10%;
+		}
+		.product-quantity {
+			max-width: 1rem;
+			width: 5%;
+		}
+		.product-subtotal {
+			width: 10%;
+		}
+		.actions {
+			text-align: right;
+		}
+		
+	}
+	
+	ul {
+	
+	}
+	li {
+		list-style-type: none;
+	}
+	
+	.cart_totals {
+		float: right;
+		th {
+			text-align: left;
+		}
+		td {
+			text-align: right;
+		}
+	}
+	
+	.wc-proceed-to-checkout {
+		text-align: center;
+	}
+}
+

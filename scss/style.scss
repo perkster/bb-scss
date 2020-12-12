@@ -1,0 +1,150 @@
+/*!
+Theme Name: 	Child Theme for Bear Bones
+Template: 		bearbones
+Description: 	Bear Bones child theme
+Version:		2.0
+Author:         Wendy Shoef
+Author URI:     http://perkstersolutions.com
+
+
+Notes:  		This theme was developed by Wendy Shoef of http://www.perkstersolutions.com
+				Perkster Solutions works with designers in helping them bring their work online!
+
+
+*/
+
+
+//*------------------------ LOAD PLUGINS -----------------------------*/
+
+//************* RESPONSIVE DESIGN **************/
+//@include media( '>=desk') {}
+//For instructions on using: http://include-media.com/documentation/
+//https://medium.freecodecamp.com/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+$bb-bp-desk : 1200px;
+$breakpoints: (
+	'phone': 320px,
+	'smartphone':600px,
+	'tablet': 900px,
+	'tablet-landscape' : 1200px,
+	'lap': 1200px,
+	'desk': $bb-bp-desk,
+	'desktop' : $bb-bp-desk,
+	'desk-wide': 1800px,
+	'menu-bp' : 950px,  //This is the main breakpoint for the menu where a responsive side menu will be used
+	'menu-mobile' : 425px,  //Sometimes further modifications of the menu are necessary for smaller screens
+	'bp-menu1' : 985px, //Breakpoint for rearranging items but not collapsing menu
+)!default;
+// *************** NOTE **************** //
+// Include media is not in the theme file as it is our preferred method of creating responsive websites and is thus required on all
+
+$maxWidth : $bb-bp-desk;
+
+@import "plugins/include-media";
+
+
+//************* STANDARDIZED COLORS **************/
+@import "plugins/color-name-hue/color-name-hue";
+
+
+//************* LOAD ADDITIONAL PLUGINS & FRAMEWORKS **************/
+@import "bourbon/bourbon";
+@import "theme/bourbon-setup";
+//@import "susy/susy";
+@import "plugins/font-awesome-placeholders/font-awesome";
+//html { font: 16px/1.6rem "Lato", Sans-serif; line-height: 1.6; }
+body {
+	overflow-x: hidden;
+	//font: 16px/1.6rem "Lato", Sans-serif; line-height: 1.6;
+}
+
+
+//*------------------------ LOAD DEFAULTS AND BEAR BONES -----------------------------*/
+@import "theme/style/colors";
+@import "theme/style/typography";
+@import "theme/bb-setup";
+@import "bear-bones/bear-bones";
+
+
+//*------------------------ LOAD THEME ----------------------------*/
+
+
+// ***************** LOAD JS & OTHER PLUGINS TO BE USED IN THEME ***************** //
+@import "plugins/infield-label-js";
+@import "plugins/sumoselect";
+//@import "plugins/responsive-side-menu";
+//@import "plugins/bb-popup/bb-popup";
+@import "plugins/bb-social-share/bb-social-share";
+//@import "plugins/pictonic";
+//@import "plugins/bb-portfolio/bb-portfolio";
+//@import "plugins/bb-owl-carousel/bb-owl-carousel";
+
+
+
+
+
+//* Components
+@import "theme/components/back-to-top";
+@import "theme/components/vcard";
+
+//*/
+
+//* Plugins
+@import "theme/plugins/bb-social-share";
+@import "theme/plugins/bb-owl-carousel";
+@import "theme/plugins/bb-staff";
+//@import "theme/plugins/marketpress";
+
+//* WooCommerce
+@import "theme/woocommerce/woocommerce";
+//@import "theme/woocommerce/product-category";
+//@import "theme/woocommerce/product";
+
+
+//* Objects
+//@import "theme/objects/main-menu";
+@import "theme/objects/main-menu-responsive";
+@import "theme/objects/header";
+@import "theme/objects/search";
+@import "theme/objects/sidebar";
+@import "theme/objects/footer";
+@import "theme/objects/social-links";
+@import "theme/objects/header-widget";
+
+@import "theme/objects/slider";
+
+//@import "theme/objects/social-feed";
+//@import "theme/plugins/geodirectory";
+
+
+//* Pages
+@import "theme/pages/home";
+@import "theme/pages/about";
+@import "theme/pages/pages";
+@import "theme/pages/blog";
+@import "theme/pages/contact-us";
+@import "theme/pages/events";
+@import "theme/pages/projects";
+@import "theme/pages/error404";
+@import "theme/pages/search";
+@import "theme/layout";
+
+//* Sitewide classes
+@import "theme/theme";
+
+
+
+
+
+
+//* Example of sprite with compass
+/*@import "compass/utilities/sprites";
+@import "icon/*.png";
+@include all-icon-sprites; */
+
+
+//*------------------------ TEMPORARY / OVERRIDES ----------------------------*/
+
+.comodoTL {
+	position: fixed;
+    bottom: 0;
+}

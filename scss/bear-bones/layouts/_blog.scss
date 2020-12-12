@@ -1,0 +1,167 @@
+/********************  Bear Bones / Layouts / Blog ******************/
+
+@if ($bb-layouts-blog == true) {
+
+	/*.topbar-wrapper {
+		height: map-deep-get($bb-topbar, 'topbar', 'height');
+		padding: map-deep-get($bb-topbar, 'topbar', 'padding');
+		background-color: map-deep-get($bb-topbar, 'topbar', 'bgc');
+	}*/
+	%#{$namespace}-post-list--block {
+		
+		.post-list__item {
+			display: block;
+			@extend %#{$namespace}-vr--p;
+			@extend %#{$namespace}-vr;
+			border-top: thin solid map-deep-get($bb-colors, 'post-separator');
+			&:first-child {
+				border-top: 0;
+			}
+		}
+		.post-list__link {
+			text-decoration: none;
+			color: map-deep-get($bb-colors, 'font');
+		}
+		.post-list__header {
+		
+		}
+		.post-list__title {
+			@extend %h4;
+		}
+		.post-list__image {
+			float: left;
+			margin-right: 1em;
+			img {
+				max-width: 100%;
+				//display: block;
+			}
+		}
+		.post-list__excerpt {
+		
+		}
+	}
+
+	%#{$namespace}-post-list--media {
+		.post-list__item {
+		
+		}
+		.post-list__link {
+		
+		}
+		
+		.post-list__header {
+		
+		}
+		.post-list__title {
+		
+		}
+		.post-list__image {
+			
+		}
+		.post-list__excerpt {
+		
+		}
+	}
+	
+	%#{$namespace}-post-list--block-img-right {
+		@extend %#{$namespace}-post-list--block;
+		.post-list__image {
+			float: right;
+			margin-left: 1em;
+			img {
+				max-width: 100%;
+				//display: block;
+			}
+		}
+	}
+	
+	%#{$namespace}-post-list--teaser {
+		.post-list__link {
+		
+		}
+		.post-list__item {
+		
+		}
+		.post-list__header {
+		
+		}
+		.post-list__title {
+		
+		}
+		.post-list__image {
+		
+		}
+		.post-list__excerpt {
+		
+		}
+	}
+	
+	%#{$namespace}-post-list--teaser-with-category {
+		.post-list__link {
+		
+		}
+		.post-list__item {
+		
+		}
+		.post-list__header {
+		
+		}
+		.post-list__title {
+		
+		}
+		.post-list__image {
+		
+		}
+		.post-list__excerpt {
+		
+		}
+	}
+	
+	%#{$namespace}-post-list--teaser-large {
+		.post-list__link {
+		
+		}
+		.post-list__item {
+		
+		}
+		.post-list__header {
+		
+		}
+		.post-list__title {
+		
+		}
+		.post-list__image {
+		
+		}
+		.post-list__excerpt {
+		
+		}
+	}
+	
+	%#{$namespace}-post-list--preview {
+		.post-list__link {
+		
+		}
+		.post-list__item {
+		
+		}
+		.post-list__header {
+		
+		}
+		.post-list__title {
+		
+		}
+		.post-list__image {
+		
+		}
+		.post-list__excerpt {
+		
+		}
+	}
+
+	
+}
+
+@if ($bb-test-blog == true) {
+
+}

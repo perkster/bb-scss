@@ -1,0 +1,486 @@
+/*-----------------  Theme / THEME -------------------*/
+
+html {
+	//font-family: Nunito, sans-serif;
+}
+h1 {
+	
+}
+h1, h3 {
+	color: $accentColor;
+	font-weight: bold;
+}
+h3 {
+	//text-transform: uppercase;	
+    //font-variant: small-caps;
+	
+}
+
+h2 {
+	text-transform: uppercase;
+}
+h2, h4 {
+	color: $accentColor4;
+	font-family: $normal-font;
+	font-weight: normal;
+	
+}
+
+
+
+
+h1,h2,h3,h4,h5,h6 {
+	line-height: 1.05em;
+	clear: both;
+}
+
+@include media( '<lap' ){
+		h1{ font-size: 2.188rem; }
+		h2{ font-size: 1.625rem; }
+		h3{ font-size: 1.25rem; }
+		h4{ font-size: 1.15rem; }
+		h5{ font-size: 1.05rem; }
+		h6{ font-size: 0.95rem; }		
+	}
+/*.full-page-inner {
+	max-width: $bb-bp-desk;
+	margin: 0 auto;
+	//overflow: auto;
+}*/
+	
+.block-heading {
+    
+    text-transform: uppercase;
+    font-weight: lighter;
+    //font-size: 54px;
+    //margin: 1rem 0 1rem -999rem;
+    //padding: 5px 100px 10px 999rem;
+	width: 100%;
+	max-width: 100%;
+	padding-left: 2rem;
+	margin: 0 auto;
+	@extend .bgc--accent-color;
+	&.bgc--accent-color2 {
+		background-color: $accentColor2;
+		color: white;
+	}
+}
+
+
+a {
+		border-bottom-width: thin;
+		border-bottom-style: dotted;
+		border-bottom-color: $accentColor;
+		&:hover {
+			border-bottom-style: solid;
+			border-bottom-color: $accentColorHover;
+		}
+		
+	&.no-border {
+		border-bottom: 0;
+	}
+}
+
+
+
+
+/*.not-active {
+   pointer-events: none;
+   cursor: default;
+}*/
+
+.block__container {
+	overflow: auto;
+}
+.block--left {
+	float: left;
+	display: block;
+	width: 50%;
+	//padding-right: 1em;
+	//border-right: thin solid $_lightGrey;
+	/*&:before {
+		overflow: auto;
+		content:"\a";
+		white-space: pre;
+		display: block;
+	}*/
+}
+.block--right {
+	float: right;
+	display: block;
+	width: 50%;
+	//padding-left: 1em;
+}
+
+.infield-label-field-wrap {
+	@extend .infield-label;
+}
+/******************************/
+
+.bh1 {
+	font-size: 68px;
+	text-transform: uppercase;
+}
+.bh2 {
+	font-size: 51px;
+	text-transform: uppercase;
+}
+
+.bh3 {
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+
+
+.full-width-wrapper, .content-wrapper {
+	@extend %#{$namespace}-full-width-wrapper;
+	&.accent-color {
+		background-color: $accentColor;
+		color: white;
+		h1,h2,h3,h4 {
+			color: white;
+		}
+	}
+	&.accent-color2 {
+		background-color: $accentColor2;
+		color: white;
+		h1,h2,h3,h4 {
+			color: white;
+		}
+	}
+}
+.full-width-inner, .content-inner {
+	@extend %#{$namespace}-full-width-inner;
+	//padding: 0 0.5rem;
+	
+	@include media( '<desktop' ) {
+		padding: 0 1rem;
+	}
+		
+	> div:first-of-type {
+		//padding: 2em 0;
+	}
+}
+
+
+main article {
+	p, h1, h2, h3, h4, h5, h6, img, ul, ol, .post-meta, .image--inline, .block--inline {
+		max-width: $maxWidth;
+		margin: 1rem auto;
+	}
+	ul, ol {
+		padding-left: 2rem;
+		li {
+			margin-bottom: 0.25rem;
+		}
+	}
+	
+}
+
+.block--inner-padding {
+	.has-2-columns {
+		max-width: $maxWidth;
+		margin: 1rem auto;
+	}
+	
+}
+
+.images--full-width {
+	img {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+.more-link {
+	color: $accentColor;
+	font-family: $heading-font;
+	font-weight: bold;
+	margin-left: 0.5em;
+}
+
+.bb-cf {
+	@extend %bb-cf;
+	
+}
+.small-caps {
+	font-variant: small-caps;
+}
+//***************************  VIDEO ************************** ///
+.video {
+	max-width: 100%;
+	max-height: 30vh;
+	@include media('>=desk' ) {
+		min-height: 620px;
+		width: 100%;
+	}
+}
+
+.video--youtube {
+
+}
+
+iframe {
+	max-width: 100%;
+}
+
+// ***************** BUTTONS ***************** ///
+
+%bb-button--secondary {
+	@include bb_setButton(
+		$map-name: 'secondary'
+	);
+}
+input[type=button], .button-primary,
+{
+	@extend %bb-button;
+}
+
+.forminator-custom-form.forminator-design--flat .forminator-button:last-child, .forminator-custom-form.forminator-design--flat a.forminator-button:last-child, .forminator-poll.forminator-design--flat .forminator-button:last-child, .forminator-poll.forminator-design--flat a.forminator-button:last-child, .forminator-quiz.forminator-design--flat .forminator-button:last-child, .forminator-quiz.forminator-design--flat a.forminator-button:last-child
+{
+	background-color: $accentColor;
+	border-radius: 1.5em;
+	text-transform: uppercase;
+	&:hover {
+		background-color: $accentColorHover;
+	}
+}
+
+.button--menu {
+	a {
+		//@extend %bb-button;
+		//color: white;
+		//background-color: $accentColor;
+		&:hover {
+			//background-color: $accentColor;
+		}
+	}
+}
+
+.button-link {
+	a {
+		@extend %bb-button;
+	}
+}
+.button-link--orange {
+	a {
+		@extend %bb-button--secondary;
+	}
+}
+
+.text--white {
+	color: white;
+}
+
+.text--xlarge, .has-large-font-size {
+	font-size: 4rem!important;
+}
+
+.button.ab-block-container {
+	padding: 0 1rem;
+	//display: block;
+	a {
+		color: white;
+		margin: 0.25rem 0;
+	}
+}
+
+.contact-severo-button {
+	
+	
+	//margin: 1rem;
+	//padding: 0.25rem 1rem;
+	
+	a {
+		@extend .button;
+	}
+}
+/*
+//'line-height' : map-get($bb-font, 'line-height-ratio'),
+		'padding-vertical' : 0.5em,
+		//'padding-horizontal' : 0.5em,
+		'push' : null,
+		//'radius' : 6px,
+		'radius' : null,
+		//'size' : 1em,
+		'trans' : 0.2s ease-in-out,
+		//'trans' : null,
+@mixin bb_setButton ( 
+  $map-name: null,
+  $bgc: null, 
+  $border-color: null, 
+  $color: null,
+  $line-height: null,
+  $padding-vertical: null,
+  $padding-horizontal: null,
+  $push: null,
+  $radius: null,
+  $size: null,
+  $trans: null,
+  $hover-color: null,
+  $hover-bgc: null,
+  $hover-border-color: null,
+  $inline: true) {
+
+
+
+.btn--outline {
+	@include bb_setButton ( 
+		null,  //$map-name,
+		transparent,  //$bgc, 
+		white,  //$border-color, 
+		white,  //$color,
+		null,  //$line-height,
+		0.5em,  //$padding-vertical,
+		null,  //$padding-horizontal,
+		null,  //$push,
+		null,  //$radius,
+		null,  //$size,
+		(0.2s ease-in-out),  //$trans,
+		$accentColor,  //$hover-color,
+		white,  //$hover-bgc,
+		white  //$hover-border-color
+	);
+}
+*/
+
+.btn--inline {
+	@extend %bb-btn--inline;
+}
+.tt--lower {
+	text-transform: initial;
+}
+
+.caption {
+	font-style: italic;
+	background-color: $_lightGrey;
+	font-size: 0.95em;
+	padding: 0.5em;
+}
+
+.fixed-bg-image {
+	background-attachment: fixed;
+	background-position:center center;
+	&.power {
+		
+	}
+}
+
+.col-3 {
+	columns: 245px 3;
+}
+.center {	text-align: center;
+}
+
+.no-margins {
+	margin: 0;
+}
+
+
+.padding-top, .padding--top {
+	margin-top: 1rem;
+}
+
+.padding--bottom {
+	margin-bottom: 1rem;
+}
+
+blockquote.accent-color {
+	padding: 2rem;
+    font-size: 1.2em;
+    text-align: center;
+    color: white;
+    background-color: $accentColor;
+	border: thin solid $accentColorHover;
+}
+
+.donate-button {
+		
+		a {
+			@extend .button;
+			color: $accentColorLink!important;
+			font-family: $heading-font;
+			text-transform: uppercase;
+			background-color: $accentColor!important;
+				
+			&:hover {
+				background-color: $accentColorHover!important;
+				color: $accentColorLink!important;
+			}
+		}
+		&:hover {
+			
+		}
+	}
+.bgc--accent-color {
+	background-color: $accentColor;
+	color: white;
+}
+
+.featured-image-as-bg {
+	//background-size: cover!important;
+}
+
+
+.wpcf7-submit {
+	@extend .button;
+}
+
+%bg-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+	min-height: 280px;
+	color: white;
+}
+
+.bg-image {
+    background: url('bg-images/bg-image.jpg') no-repeat center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+	min-height: 285px;
+	&.overlay {
+		background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
+		url('bg-images/bg-image.jpg') no-repeat center center;
+		
+	}
+}
+
+.icon {
+	font-size: 2rem;
+	//display: table-cell;
+	i {
+		color: $accentColor;
+		//font-size: 2.75rem;
+		margin-right: 0.5rem;
+	}
+	@include media('<menu-mobile') {
+		text-align: left;
+	}
+}
+
+
+
+
+/********************** WORDPRESS REQUIRED *********************/
+.aligncenter {
+	text-align: center;
+	margin: 0 auto;
+}
+
+
+.wp-block-image {
+	width: 100%;
+	a {
+		width: 100%;
+		display: block;
+	}
+	
+}
+
+.image--fullwidth {
+	img {
+		width: 100%;
+		max-width: 100%;
+	}
+}

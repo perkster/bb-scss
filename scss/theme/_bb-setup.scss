@@ -1,0 +1,147 @@
+//*----------------- Theme / Bear Bones Setup --------------------*/
+
+$bb-components-accordion: true;
+
+
+
+//Bear Bones Plugins
+$bbpup-bgc : transparent;
+$bbpup-container-bgc : $charcoal;
+$bbpup-container-margin : 10% auto;
+
+
+  
+  //* Button defaults */
+$bb-buttons-custom: (
+	'primary' : (
+		'bgc' : $accentColor, //background-color
+		'border-color' : $accentColor,
+		'color' : white,		
+		//'line-height' : map-get($bb-font, 'line-height-ratio'),
+		'padding-vertical' : 0em,
+		'padding-horizontal' : 1em,
+		'push' : null,
+		'radius' : 1.5em,
+		//'radius' : null,
+		//'size' : 1em,
+		'trans' : 0.2s ease-in-out,
+		//'trans' : null,
+		'hover' : (
+			'bgc' : $accentColorHover,
+			'border-color' : $accentColorHover,
+			'color' : white,
+		)
+	),
+	'secondary' : (
+		'bgc' : $accentColor2, //background-color
+		//'border-color' : darken($accentColor2,10%),
+		'border-color' : $accentColor2,
+		'color' : white,		
+		//'line-height' : map-get($bb-font, 'line-height-ratio'),
+		'padding-vertical' : 0em,
+		'padding-horizontal' : 1em,
+		'push' : null,
+		//'radius' : 6px,
+		'radius' : 1.5em,
+		//'size' : 1em,
+		'trans' : 0.2s ease-in-out,
+		//'trans' : null,
+		'hover' : (
+			//'bgc' : darken($accentColor2, 20%),
+			//'border-color' : darken($accentColor2,10%),
+			'bgc' : $accentColor2Hover,
+			'border-color' : $accentColor2Hover,
+			'color' : white,
+		)
+	),
+
+);
+
+$bb-headings-custom: (
+	'all': (	
+		//'font-family' : ('Alfa Slab One', sans-serif),
+		'font-family': $heading-font,
+		'font-weight': 'normal',
+		'line-height' : 1.6,
+		'margin-bottom': 1rem,
+		//'text-transform' : 'uppercase'
+		//'color' : $zenGray
+	)
+);
+
+
+$bb-layout-custom: (
+	'full-width-max': $bb-bp-desk,
+	'full-width-percentage': auto,
+	'components' : (
+		'full-page-inner' : 'full-page-wrapper',
+		//inner, wrapper
+		//'main-content': 'main-content-wrapper'
+		//'home-content': 'home-content-wrapper',
+		//'home-widget-top-inner' : 'home-widget-top-wrapper',
+		//'home-widget-bottom-inner' : 'home-widget-bottom-wrapper',
+		//'footer-widget' : 'footer-widget-wrapper',
+		//'footer-widget-2' : 'footer-widget-2-wrapper',
+		//'footer' : 'footer-wrapper',
+		//'request-estimate' : 'request-estimate-wrapper',
+		//'home-quote-icons' : 'home-quote-icons--wraper',
+		//'main-menu' : 'main-menu-wrapper',
+		//'content--front-page' : 'article--front-page',
+	)
+);
+
+$bb-social-custom: (
+	//'bgc--hover': $irisBlue,
+	//'bgc--hover' : 'social',
+	//'bgc--hover' : rgba(255,255,255,0),
+	//'bgc': $eclipse,
+	//'bgc' : rgba(255,255,255,0),
+	'bgc--hover' : 'social',
+	'color' : $fontColor,
+	'color--hover': white,
+	'ml' : 0.5em,
+	'width' : 1.75em,
+	'height' : 1.75em,
+	'radius' : 1.5em,
+	'size' : 1.5em,
+	'border' : (3px solid $dimGray),
+	'border-color--hover' : $whiteSmoke
+	//'padding' : 0.25em
+);
+
+$bb-social-share-custom: (
+	//'span' : 'visible'
+);
+
+$bb-masonry-custom: (
+	'mobile' : null,
+	'tablet' : 2,
+	'lap' : 3,
+	'desk' : 4,
+	'desk-wide' : null,
+	'gap' : 1em
+);
+
+$bb-forms-custom: (
+	//inline fields
+	'forms':(
+		'input':(
+			'color': black,
+		),
+	)
+);
+
+$bb-menu: (
+	'drop-down' : true,
+	'responsive' : true,
+	'align' : center, //left, center, right	
+	'margin' : 2rem 0,
+	'uppercase' : true,
+	'font-size' : 0.75rem,
+	'hide-first-item' : true,  //shows in mobile ie: Home
+	
+	'responsive-align' : left, //left, right, center (full width)
+	'responsive-margin' : 0,
+	
+);
+

@@ -1,0 +1,31 @@
+/********************  Bear Bones / Layouts / Header ******************/
+
+@if ($bb-layouts-header == true) {
+
+	%#{$namespace}-header-logo--stacked {
+		.header__link, header__logo, .header__title, .header__tagline {
+			display: block;
+		}
+	}
+	%#{$namespace}-header-logo--inline {
+		.header__link {
+			display: block;
+		}
+		.header__logo, .header__title, .header__tagline {
+			display: inline-block;
+		}
+	}
+	%#{$namespace}-header-main-menu--right-of-logo {
+
+	}
+	%#{$namespace}-header-main-menu--above-header {
+
+	}
+	%#{$namespace}-header-main-menu--below-header {
+
+	}
+}
+
+@if ($bb-test-header-layouts == true) {
+
+}

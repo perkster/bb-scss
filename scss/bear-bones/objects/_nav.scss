@@ -1,0 +1,89 @@
+/********************  Bear Bones / Objects / NAV ******************/
+@mixin bb-dropdown {
+		.sub-menu {
+			display: none;
+			float: left;
+			position: absolute;
+			z-index: 1000;	
+			//@extend %ul--none;
+			list-style-type: none;
+			margin-left: 0;
+			padding-left: 0;
+		}
+		li:hover > .sub-menu {
+			display: block;
+		}
+}
+
+@mixin bb-navbar($alignment: center) {
+	display: table;
+	table-layout: auto;
+	width: 100%;
+	> ul {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		padding-left: 0;
+		margin-left: 0;
+		> li {
+			display: table-cell;
+			text-align: $alignment;
+			> a {
+				width: 100%;
+				display: block;
+			}
+		}
+	}
+}
+
+//navbar---justified taken totally from http://codepen.io/geoffyuen/pen/Awudj
+//http://tympanus.net/codrops/2013/07/14/justified-and-vertically-centered-header-elements/'
+
+@mixin bb-navbar--justified() {
+	margin: 0 auto;
+	> ul {
+		text-align: justify;
+		overflow: hidden;
+		//margin: 0;
+		padding: 0;
+		&:after {
+			// justify inline-block method:
+			// http://tympanus.net/codrops/2013/07/14/justified-and-vertically-centered-header-elements/
+			content: '';
+			display: inline-block;
+			width: 100%;
+		}
+		> li {
+			display: inline-block;
+		}
+	}
+}
+
+@if ($bb-objects-nav == true) {
+	%#{$namespace}-dropdown, %#{$namespace}-submenu  {
+		@include bb-dropdown();
+	}
+	%#{$namespace}-navbar {
+		@include bb-navbar();
+	}
+	%#{$namespace}-navbar--justified {
+		@include bb-navbar--justified();
+	}
+	%#{$namespace}-navbar--right {
+		@extend %#{$namespace}-navbar;
+		float: right;
+	}
+}
+
+$bb-test-nav: false!default;
+@if ($bb-test-nav == true) {
+	.test-nav {
+		@extend %bb-navbar;
+	}
+	.test-nav--justified {
+		//@extend %navbar;
+		@extend %#{$namespace}-navbar--justified;
+		//If having issues with extra whitespace, then add:
+		margin-bottom: -$bb-base-line-height;
+	}
+}

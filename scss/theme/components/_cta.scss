@@ -1,0 +1,97 @@
+/************ Theme / Components / CTA ***********/
+%cta__headline {
+	font-family: $heading-font;
+	text-transform: uppercase;
+	letter-spacing: 3px!important;
+	color: white;
+	margin-bottom: 1rem;
+	text-shadow: 1px 1px $_grey;
+	@extend .bh3;
+}
+%cta__text {
+	color: white;
+	font-family: $normal-font;
+	float: left;
+	width: 60%;
+	padding-right: 1rem;
+	text-shadow: 1px 1px $_grey;
+}
+%cta__button {
+	width: 40%;
+	float: right;
+	
+}
+%cta__link {
+	background-color: $accentColor;
+	text-transform: uppercase;
+	font-family: $normal-font;
+	font-size: 1.25rem;
+	//padding: 0.5em 1.5em;
+	text-align: center;
+	color: white;
+	display: block;
+	padding: 0.25rem;
+	width: 100%;
+	&:hover {
+		background-color: $_darkOrange;
+		color: white;
+	}
+}
+%cta__bg-image {
+	background-attachment : fixed;
+    background-position   : center center;
+    background-size       : cover;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+	overflow: auto;
+	padding: 5rem 25%;
+	 
+}
+.cta__title { 
+	font-family: $heading-font;
+	text-transform: uppercase;
+	letter-spacing: 3px!important;
+}
+
+.cta__text {
+	font-family: $normal-font;
+}
+
+.cta__button {
+	background-color: $accentColor!important;
+	text-transform: uppercase!important;
+	font-family: $normal-font!important;
+	padding: 0.5em 0.25em!important;
+	text-align: center!important;
+}
+
+.cta-power__headline, .cta-donate__headline {
+	@extend %cta__headline;
+}
+
+.cta-power__text, .cta-donate__text {
+	@extend %cta__text;
+}
+.cta-power__button, .cta-donate__button {
+	@extend %cta__button;
+}
+.cta-power__link, .cta-donate__link {
+	@extend %cta__link;
+}
+.cta-donate {
+	@extend %cta__bg-image;
+	min-height: 425px;
+	background-image : url(
+      'http://192.185.139.23/~sclnweb/wordpress/wp-content/uploads/cta_donate.jpg'
+    );
+	//background-position: 0 0;
+}
+.cta-power {
+	@extend %cta__bg-image;
+	min-height: 300px;
+	background-image : url(
+      'http://192.185.139.23/~sclnweb/wordpress/wp-content/uploads/cta_power.jpg'
+    );
+	//background-image : url(http://192.185.139.23/~sclnweb/wordpress/wp-content/uploads/2016/06/slider_image_2.jpg);
+	//background-position: center 500px;
+}

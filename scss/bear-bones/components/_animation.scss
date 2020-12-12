@@ -1,0 +1,13 @@
+/********************  Bear Bones / Components / ANIMATION ******************/
+
+
+@if ($bb-components-animation == true) {
+	%#{$namespace}-animation--fade-in {
+		transition: opacity .25s ease-in-out;
+		opacity: 1;
+	}
+	%#{$namespace}-animation--fade-out {
+		transition: opacity .25s ease-in-out;
+		opacity: 0;
+	}
+}

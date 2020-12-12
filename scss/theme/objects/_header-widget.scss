@@ -1,0 +1,39 @@
+/************ Theme / Objects / HEADER WIDGET ***********/
+.header-widget-wrapper {
+	background-image: url('images/header-widget-bg.jpg');
+	background-size: contain;
+	overflow: hidden;
+}
+.header-widget-inner {
+	@extend .full-page-inner;
+}
+.header-widget {
+	/*@include media( '>=menu-bp') {
+		section {
+			float: left;
+			display: block;
+		}
+	}*/
+	display: inline-block;
+	.search-box {
+		padding: 0 1rem;
+	}
+	
+}
+div.header-widget {
+	@include media('<bp-menu1') {
+		width: 100vw;
+		margin: 0 auto;
+		text-align: center;
+		section {
+			float: left;
+			clear: both;
+			width: 100%;
+		}
+	}
+	
+	@include media('>=bp-menu1') {
+	//@include media( '>=menu-bp') {
+		float: right;
+	}
+}

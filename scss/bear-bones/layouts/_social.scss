@@ -1,0 +1,34 @@
+/********************  Bear Bones / Layouts / Header ******************/
+
+@if ($bb-layouts-social == true) {
+	%#{$namespace}-social {
+		ul {
+			list-style-type: none;
+			margin-left: 0;
+		}
+	}
+	%#{$namespace}-social--stacked {
+		@extend %#{$namespace}-social;
+		ul {
+			li {
+				display: block;
+			}
+		}
+	}
+	%#{$namespace}-social--inline {
+		@extend %#{$namespace}-social;
+		ul {
+			li {
+				display: inline-block;
+			}
+		}
+	}
+	
+	%#{$namespace}-social--round {
+	
+	}
+}
+
+@if ($bb-test-social-layouts == true) {
+
+}

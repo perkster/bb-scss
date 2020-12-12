@@ -1,0 +1,318 @@
+/********************  Bear Bones / Base / COLORS ******************/
+//COLORS renamed using https://github.com/RichardBray/color-me-sass http://richbray.me/cms/ - So AWESOME
+//Big shout out for http://www.color-blindness.com/color-name-hue/ for getting me going in this direction!
+
+//Requires plugin file: color-name-hue
+//Color-name-hue plugin is based off of color-me-sass but uses the color-name-hue website for names. 
+//Continuously adding in colors as projects need them
+
+
+//*------------------------
+//http://codepen.io/davidhalford/pen/wlDxL
+//mixin that calculates if text needs to be light or dark
+//depending on the background color passed.
+//From this W3C document: http://www.webmasterworld.com/r.cgi?f=88&d=9769&url=http://www.w3.org/TR/AERT#color-contrast
+//Color brightness is determined by the following formula: 
+//((Red value X 299) + (Green value X 587) + (Blue value X 114)) / 1000
+//------------------------*/
+
+@function bb_colorContrast($n, $fontColor : map-get($bb-colors, 'font--dark')) {
+  $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
+  $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+  $font-color--light: map-get($bb-colors, 'font--light');
+  $font-color--dark: map-get($bb-colors, 'font--dark');
+  
+  @if abs($color-brightness) < ($light-color/2){
+	@if (lightness($fontColor) > 50) {
+		@return $fontColor;
+	} @else {
+		@return $font-color--light;
+	}
+  }
+
+  @else {
+	@if (lightness($fontColor) < 50) {
+    	@return $fontColor;
+	} @else {
+		@return $font-color--dark;
+	}
+  }
+}
+
+// Mixin to set background-color, border, font, link & hover based off of $bb_colors map (in colors)
+// $map : ( 'theme' ( 'background': $papayaWhip, 'border': $macaroniAndCheese, 'font': $treePoppy, 'link': darken($treePoppy, 20%),	'link-hover': darken($treePoppy, 40%) ) );
+
+@mixin bb_colorBlock( $bgc : #999, $bd : #000, $c : #222, $link : false, $lc : #000, $lch : #111, $borderStyle : thin solid  ) {
+	background-color: $bgc;
+	border: $bd $borderStyle;
+	color: bb_colorContrast($bgc, $c);
+	@if( $link == true ) {
+		a {
+			color: bb_colorContrast($bgc, $lc);
+			&:hover {
+				color: bb_colorContrast($bgc, $lch);
+			}
+		}
+	}
+}
+
+//Calls bb_colorBlock but uses a map with colors, see $bb_colors for example on how to set up map
+// For example:
+// $bb_accent_colors: ( 'accent-color': ( 'background': #666666, 'border': darken(#666666,20), 'font': #fff, 'link': lighten(#666666,40), 'link-hover': lighten(#666666,30) ) ) ;
+@mixin bb_colorMapBlock ( $theme : 'light-red', $map : $bb_colors, $link : false, $borderStyle : thin solid  ) {
+	@include bb_colorBlock ( 
+		map-deep-get($map, $theme, 'background' ), 
+		map-deep-get($map, $theme, 'border'  ),
+		map-deep-get($map, $theme, 'font'  ),
+		$link,
+		map-deep-get($map, $theme, 'link'  ),
+		map-deep-get($map, $theme, 'link-hover'  )
+	);
+}
+@mixin bb_colorMap( $map-name : 'light-red', $border-width: null, $border-style: null, $border-important: null ) {
+	//background-color: map-deep-get($map, $theme, 'bgc' );
+	@if (map-has-keys($bb-colors, #{$map-name}, 'bgc')) {
+		background-color: map-deep-get($bb-colors, #{$map-name}, 'bgc');
+	}
+	@if (map-has-keys($bb-colors, #{$map-name}, 'border')) {
+		border-color: map-deep-get($bb-colors, #{$map-name}, 'border');
+	}
+	@if ($border-width) {
+		border-width: $border-width;
+	}
+	@if ($border-style) {
+		border-style: $border-style;
+	}
+	@if ( map-has-keys($bb-colors, #{$map-name}, 'border' ) AND $border-width AND $border-style ) {
+		border: $border-width $border-style map-deep-get($bb-colors, #{$map-name}, 'border')$border-important;
+	}
+	@if (map-has-keys($bb-colors, #{$map-name}, 'font')) {
+		color: map-deep-get($bb-colors, #{$map-name}, 'font');
+	}
+	@if (map-has-keys($bb-colors, #{$map-name}, 'link')) {
+		a {
+			color: map-deep-get($bb-colors, #{$map-name}, 'link');
+		}
+	}
+	@if (map-has-keys($bb-colors, #{$map-name}, 'link-hover')) {
+		a:hover {
+			colorcolor: map-deep-get($bb-colors, #{$map-name}, 'link-hover');
+		}
+	}	
+}
+
+@function set-hover-color($color) {
+  @if (lightness($color) > 50) {
+	// Lighter color, return dark color
+	$color : darken($color, 10%);    
+  } @else {
+	// Darker color, return light color
+    $color : lighten ($color, 10%); 
+  }
+  @return $color;
+}
+
+@mixin text-class ( $color : false, $color_hover : false) {
+	color: $color;
+	@if ( $color_hover  ) {
+		&:hover, &:focus {
+			color: set-hover-color($color);
+		}
+	}
+}
+
+@mixin bb_backgroundOpacity($color, $opacity: 0.3, $only: true) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+
+//*Base color used for borders and stuff */
+//$base-ui-color				: 	#444!default;
+//$border-color    			: 	lighten($base-ui-color, 60%)!default;
+
+
+$bb-colors-themes: (
+	//error
+	'light-red': (
+		'bgc': $mistyRose,
+		'border': $monaLisa,
+		'font': $orangeRed,
+		'link': darken($orangeRed, 20%),
+		'link-hover': darken($orangeRed, 40%),
+	),
+	//success
+	'light-green': (
+		'bgc': $honeydew,
+		'border': $pastelGreen,
+		'font': $forestGreen,
+		'link': darken($forestGreen, 20%),
+		'link-hover': darken($forestGreen, 40%),
+	),
+	//warning
+	'light-yellow': (
+		'bgc': $earlyDawn,
+		'border': $buff,
+		'font': $goldenBrown,
+		'link': darken($goldenBrown, 20%),
+		'link-hover': darken($goldenBrown, 40%),
+	),
+	//warning
+	'light-blue': (
+		'bgc': $pattensBlue,
+		'border': $lightBlue,
+		'font': $royalBlue,
+		'link': darken($royalBlue, 20%),
+		'link-hover': darken($royalBlue, 40%),
+		'link-color': white,
+	),
+	//alert
+	'peach': (
+		'bgc': $papayaWhip,
+		'border': $macaroniAndCheese,
+		'font': $treePoppy,
+		'link': darken($treePoppy, 20%),
+		'link-hover': darken($treePoppy, 40%),
+	),
+	//error
+	'bright-red': (
+		'bgc': $freeSpeechRed,
+		'border': $sangria,
+		'font': white,
+		'link': $mistyRose,
+		'link-hover': darken($mistyRose, 30%),
+	),
+	'gray':(
+		//Grays
+		'darkest' : $eclipse, 
+		'darker' : $charcoal, 
+		'dark' : $aluminum,
+		'gray' : $grey,
+		'light' : $gainsboro, 
+		'lightest': $whiteSmoke
+	),
+	//taken from http://viget.com/extend/sass-maps-are-awesome
+	//and http://brandcolors.net/
+	'social':(
+		bandcamp: #629aa9,
+		delicious: #3399ff,
+		digg: #000000,
+		facebook: #3b5998,
+		ficly: #b51c2c,
+		flickr: #0063db,
+		github: #4183c4,
+		google: #4285f4,
+		google-plus: #dd4b39,
+		instagram: #3f729b,
+		kickstarter: #76cc1e,
+		lanyrd: #152e51,
+		lastfm: #d51007,
+		linkedin: #007bb6,
+		photodrop: #cdb6e3,
+		pinterest: #cb2027,
+		rdio: #0088da,
+		reddit: #ff4500,
+		soundcloud: #f60,
+		stumbleupon: #eb4924,
+		tumblr: #36465d,
+		twitter: #00aced,
+		vimeo: #aad450,
+		yelp: #d32323,
+		youtube: #b00
+	),
+	'accent-color': ( 
+		'bgc': #336699, 
+		'border': darken(#336699,20), 
+		'font': #fff, 
+		'link': lighten(#336699, 40), 
+		'link-hover': lighten(lighten(#336699, 40),30) 
+	),
+	'accent-color2': ( 
+		'bgc': #00B2CA, 
+		'border': darken(#00B2CA,20), 
+		'font': #fff, 
+		'link': darken(#00B2CA, 40),
+		'link-hover': lighten(darken(#00B2CA, 40),20) 
+	),
+	'accent-color3': ( 
+		'bgc': rgb(96, 142, 192), 
+		'border': darken(rgb(96, 142, 192),20), 
+		'font': #fff, 
+		'link': lighten(rgb(96, 142, 192), 40),
+		'link-hover': lighten(lighten(rgb(96, 142, 192), 40),20) 
+	),
+) !default;
+
+$bb-colors-default: (
+	'bgc': white,
+	'font': #222,
+	'font--dark': #222,
+	'font--light': #fff,
+	'link': #000,
+	'link--hover': #111,
+	'hr': #222,
+	'ui': #f9f9f9,
+	'ui--dark': map-deep-get($bb-colors-themes, 'gray', 'dark'),
+	'topbar': (
+		'bgc' : black,
+		'color' : white,
+		'link' : white,
+		'link--hover' : map-deep-get($bb-colors-themes, 'gray', 'lightest'),
+	),
+	'second-topbar': (
+		'bgc' : map-deep-get($bb-colors-themes, 'gray', 'dark'),
+		'color' : white,
+		'link' : white,
+		'link--hover' : map-deep-get($bb-colors-themes, 'gray', 'light'),
+	),
+	'menu':(
+		'bgc': #fff,
+		'list':(
+			'bgc': #fff,
+			'border-color' : null,
+			'color': black,
+		),
+		'item':(
+			'bgc': #fff,
+			'border-color' : null,
+			'color': black,
+		),
+		'link': (
+			'bgc': white,
+			'border-color': null,
+			'color': $charcoal,
+		),
+		'link-hover': (
+			'bgc': white,
+			'border-color': null,
+			'color': $nobel,
+		),
+	),
+	'submenu':(
+		'bgc': #fff,
+		'list':(
+			'bgc': #fff,
+			'border-color' : null,
+			'color': black,
+		),
+		'item':(
+			'bgc': #fff,
+			'border-color' : null,
+			'color': black,
+		),
+		'link': (
+			'bgc': white,
+			'border-color': null,
+			'color': $charcoal,
+		),
+		'link-hover': (
+			'bgc': white,
+			'border-color': null,
+			'color': $nobel,
+		),
+	)
+)!default;
+$bb-colors-custom: ()!default;
+
+$bb-colors: map-extend($bb-colors-default, $bb-colors-themes, $bb-colors-custom, true);
+
+

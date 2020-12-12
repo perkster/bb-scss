@@ -1,0 +1,113 @@
+/********************  Bear Bones / Components / SOCIAL ******************/
+@mixin bb_socialColors (
+		$attribute : 'color',
+		$fa : true,
+		$customclass : 'fa'
+	){
+	//$bb-socialBgc : map-get($bb-social, 'bgc');
+	@if (map-has-keys($bb-colors, 'social')) {
+		@if ( $fa ) {
+			@each $profile, $bgcolor in (map-get($bb-colors, 'social')) {
+				.#{$customclass}-#{$profile}{
+					#{$attribute}: $bgcolor;
+				}
+			}
+		} @else {
+			@each $profile, $bgcolor in (map-get($bb-colors, 'social')) {
+				&.#{$customclass}-#{$profile}{
+					#{$attribute}: $bgcolor;
+				}
+			}
+		}
+	} 
+}
+
+@if ($bb-components-social == true) {
+	%#{$namespace}-fa-social-menu {
+		@extend %bb-ul--none;
+		li {
+			display: inline-block;
+			text-align: center;
+			margin: 0 auto;
+			margin-left: 0.5em;
+			&:first-of-type {
+				margin-left: 0;
+			}
+		}
+		$bb-socialBgcHover : map-get($bb-social, 'bgc--hover');
+		@if (map-has-keys($bb-colors, $bb-socialBgcHover)) {
+			@each $profile, $bgcolor in (map-get($bb-colors, $bb-socialBgcHover)) {
+				.fa-#{$profile}:focus:before,
+				.fa-#{$profile}:hover:before {
+					background-color: $bgcolor;
+				}
+			}
+		}
+		$bb-socialColorHover : map-get($bb-social, 'color--hover');
+		@if (map-has-keys($bb-colors, $bb-socialColorHover)) {
+			@each $profile, $bgcolor in (map-get($bb-colors, $bb-socialColorHover)) {
+				.fa-#{$profile}:focus:before,
+				.fa-#{$profile}:hover:before {
+					color: $bgcolor;
+				}
+			}
+		}
+		a {
+			display: inline-block;
+			&:hover:before {
+				//@include bb_socialColors( $attribute: 'background-color' );
+				@if( map-get( $bb-social, 'bgc--hover' ) == 'social' ) {
+					//@include bb_socialColors( $attribute: 'background-color', $fa : false );	
+				} @else {
+					background-color: map-get( $bb-social, 'bgc--hover' );
+				}
+				@if( map-get( $bb-social, 'color--hover' ) == 'social' ) {
+					//@include bb_socialColors( $attribute: 'color', $fa : false );	
+				} @else {
+					color: map-get( $bb-social, 'color--hover' );
+				}
+				border-color: map-get( $bb-social, 'border-color--hover' );
+			}
+			&:before {
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+				width: map-get( $bb-social, 'width' );
+				height: map-get( $bb-social, 'height' );
+				border-radius: map-get( $bb-social, 'round' );
+				border: map-get( $bb-social, 'border' );
+				padding: map-get( $bb-social, 'padding' );
+				
+				@if( map-get( $bb-social, 'bgc' ) == 'social' ) {
+					@include bb_socialColors( $attribute: 'background-color' );	
+				} @else {
+					background-color: map-get( $bb-social, 'bgc' );
+				}
+				@if( map-get( $bb-social, 'color' ) == 'social' ) {
+					@include bb_socialColors( $attribute: 'color' );	
+				} @else {
+					color: map-get( $bb-social, 'color' );
+				}
+				
+				border-radius: map-get($bb-social, 'radius');
+				font-size: map-get($bb-social, 'size');
+				
+			}
+			span {
+				@if( map-get( $bb-social, 'span' ) == 'accessibility' ) {
+					@extend .accessibility;	
+				} @else {
+					display: table-cell;
+					padding: 0 0.25em;
+					//color: $font-color;
+				}
+			}
+		}
+	}
+}
+
+
+$bb-test-social : true;
+@if ($bb-test-social == true) {
+
+}

@@ -1,0 +1,49 @@
+/********************  Bear Bones / Objects / SIMPLE GRID ******************/
+
+/** 
+ * http://css-tricks.com/dont-overthink-it-grids/
+ * https://github.com/mourner/dead-simple-grid
+ * http://mourner.github.io/dead-simple-grid/
+ * Dead Simple Grid (c) 2012 Vladimir Agafonkin 
+ */
+
+	@mixin bb_simple_grid_gutter( $gutter : $bb-simple-gutter) {
+		padding-right: $gutter;	
+	}
+
+
+ @if $bb-objects-simple-grid == true{
+	
+	%#{$namespace}--simple-grid {
+		margin: 0 ;	
+		width: 100%;
+		@extend %bb-cf;
+	}
+
+	%#{$namespace}--simple-grid-item {
+		//padding-right: $bb-simple-gutter;
+		float: left;
+		//width: 100%;
+		&:last-of-type {
+			//padding-right: 0;
+		}
+	}
+
+	%#{$namespace}-one-half {
+		width: 50%;
+	}
+	%#{$namespace}-one-third {
+		width: percentage(1/3); //33.33%;
+	}
+	%#{$namespace}-one-quarter {
+		width: 25%;
+	}
+	
+	%#{$namespace}-grid {
+		@extend %#{$namespace}--simple-grid;
+	}
+
+	%#{$namespace}-grid-item, %#{$namespace}-grid__item {
+		@extend %#{$namespace}--simple-grid-item;
+	}
+}

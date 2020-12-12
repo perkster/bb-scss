@@ -1,0 +1,82 @@
+/********************  Theme / Plugins / BB SOCIAL SHARE  ******************/
+
+
+.bb-social-share {
+	@include bbSocialShare__inline ();
+	@include media( '>=760px') {
+		/*@include bbSocialShare__floatVertical (  );
+				bottom: 0;
+		min-height: 25vh;*/
+		
+		z-index: 99999;
+		/* float: left; */
+		-webkit-transform: rotate(90deg);
+		-moz-transform: rotate(90deg);
+		-o-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+		transform: rotate(270deg);
+		position: fixed;
+		bottom: 0;
+		margin-left: 0;
+		/* margin-bottom: 6rem; */
+		background-color: black;
+		color: white;
+		padding: 0.25rem 0.5rem;
+		display: table;
+		/* vertical-align: middle; */
+		transform-origin: left top;
+	}
+	@include media ( '>1650' ) {
+
+	}
+	@include media( '<760px') {
+		//@include bbSocialShare__inline( '0' );
+	}
+	.fa-envelope {
+		background-color: $accentColor;
+	}
+	
+
+}
+
+.bb-social-share__text-before {
+	//font-weight: bold;
+	//font-size: 0.85em;
+	display: table-cell;
+	vertical-align: middle;
+	padding-right: 0.5rem;
+}
+.bb-social-share__list {
+	
+	@include media( '>=760px') {
+		//float: right;
+    	//margin-top: -5em;
+		display: table-cell;
+	}
+	@include media( '<760px') {
+		text-align:center;
+	}
+}
+.bb-social-share__item {
+	margin-left: 0.25em;
+}
+.bb-social-share__link {
+	//color: $gainsboro;
+	@include bb_socialColors( $attribute: 'background-color' );	
+	
+	//@include bb_socialColors( );	
+	color: white;
+	border: 0;
+	&:hover {
+		color: white;
+		transform: scale(1.1);
+		//transform: scale(1.1) rotate(360deg);
+		border: 0;
+	}
+	i {
+		width: 2em;
+		height: 2em;
+		//background-color: $charcoal;
+	}
+}
+

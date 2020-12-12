@@ -1,0 +1,46 @@
+/************ Theme / Components / ACCORDION ***********/
+
+.accordion { 
+	@extend %#{$namespace}-accordion-chevron--right;
+}
+
+/************** ACCORDION **************/
+
+.accordion {
+	@extend %bb-accordion;
+
+}
+
+.accordion__title {
+	//color: $accentColor;
+	font-size: 1.25em;
+	font-weight: bold;
+	margin-top: 1em;
+	/*	@include bb_fontAwesome(	
+			$place : 'after', 
+			$icon : 'toggle-down', 
+			$font-size : 1rem,
+			$padding-left : 0.25em,  
+			$color : $accentColor, 
+			$position: relative,
+			$top : (-0.15rem)
+		);*/
+	}
+
+.accordion__title.current {
+		/*@include bb_fontAwesome(	
+			$place : 'after', 
+			$icon : 'toggle-up', 
+			//$font-size : 1rem,
+			//$padding-left : 0.25em,  
+			//$color : $mayaBlue, 
+			$position: relative,
+			$top : (-0.15rem)
+		);*/
+		//outline: auto;
+		//outline-color: $accentColor;
+	}
+	
+.accordion__content {
+	margin-bottom: 1em;
+}

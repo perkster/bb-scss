@@ -1,0 +1,75 @@
+/************ Plugins / BB PoupUP ***********/
+$bbpup-bgc : rgba(#666666, .9) !default;
+$bbpup-container-bgc : white !default;
+$bbpup-container-margin : 4em auto !default;
+
+
+
+.bb-popup {
+
+}
+
+.bb-popup-wrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: $bbpup-bgc;
+
+	opacity: 0;
+	visibility: hidden;
+	@include transition(opacity .3s 0s, visibility 0s .3s);
+
+	&.is-visible {
+		opacity: 1;
+		visibility: visible;
+		@include transition(opacity .3s 0s, visibility 0s 0s);
+		z-index: 9000;
+	}
+}
+
+.bb-popup-container {
+	position: relative;
+	width: 90%;
+	margin: $bbpup-container-margin;
+	background: $bbpup-container-bgc;
+	//border-radius: .4em;
+	text-align: center;
+	box-shadow: 0 0 20px rgba(#000, .2);
+	padding: 5em 2em 2em;
+
+	@include transform(translateY(-40px));
+	/* Force Hardware Acceleration in WebKit */
+	-webkit-backface-visibility: hidden;
+
+	@include transition-property (transform);
+	@include transition-duration(.3s);
+
+	.bb-popup-close {
+		position: absolute;
+		top: 10px;
+		right: 15px;
+		padding: 0.2rem;
+		margin: -1em;
+		background-color: white;
+		border-radius: 2rem;
+		width: 2rem;
+		height: 2rem;
+		vertical-align: middle;
+		/* display: block; */
+		font-weight: bold;
+		font-size: 1.25rem;
+		box-shadow: 1px 1px 0px 0px #ccc;
+		border: thin solid $gainsboro;
+		&:hover {
+			background-color: $gainsboro;
+		}
+	}
+
+	.is-visible & {
+		@include transform(translateY(0));
+	}
+
+
+}

@@ -1,0 +1,117 @@
+/********************  Bear Bones / Base / TEXTURE ******************/
+$bb-html-texture: false!default;
+@if ($bb-base-texture == true) {
+	%#{$namespace}-border--accent-color {
+		@include set_border( map-deep-get($bb-colors, 'accent-color', 'bgc') );
+	}
+
+	%#{$namespace}-border--accent-color2{
+		@include set_border( map-deep-get($bb-colors, 'accent-color2', 'bgc') );
+	}
+
+	//* Rounded corners */
+	//* http://compass-style.org/reference/compass/css3/border_radius/  */
+	//* To use customized rounded corners/radius on other elements, use Bourbon http://bourbon.io/ */
+	//* This is to keep elements consistent across the design. */
+
+    %#{$namespace}-brand-round {
+		/* Brand Round */
+		@if (map-get($bb-brand, 'use') == true) {
+			@if (map-get($bb-brand, 'style') == all) {
+				//@include border-radius($brand-round);
+				border-radius: map-get($bb-brand, 'round');
+			} 
+			@elseif (map-get($bb-brand, 'style') == top) {
+				//@include border-top-radius($brand-round);
+				border-top-radius: map-get($bb-brand, 'round');
+			}
+			@elseif (map-get($bb-brand, 'style') == bottom) {
+				//@include border-bottom-radius($brand-round);
+				border-bottom-radius: map-get($bb-brand, 'round');
+			}
+			@elseif (map-get($bb-brand, 'style') == left) {
+				//@include border-left-radius($brand-round);
+				border-left-radius: map-get($bb-brand, 'round');
+			}
+			@elseif (map-get($bb-brand, 'style') == right) {
+				//@include border-right-radius($brand-round);
+				border-right-radius: map-get($bb-brand, 'round');
+			}
+			@else {
+				//@include border-right-radius($brand-round);
+				border-right-radius: map-get($bb-brand, 'round');
+			}
+		}
+	}
+	
+	%#{$namespace}-fade {
+	   opacity: 1;
+	   transition: opacity .25s ease-in-out;
+	   -moz-transition: opacity .25s ease-in-out;
+	   -webkit-transition: opacity .25s ease-in-out;
+	   &:hover {
+		  opacity: 0.5;
+		  }	
+	}
+
+
+	%#{$namespace}-fade--rev {
+	   opacity: 0.5;
+	   transition: opacity .25s ease-in-out;
+	   -moz-transition: opacity .25s ease-in-out;
+	   -webkit-transition: opacity .25s ease-in-out;
+	   &:hover {
+		  opacity: 1;
+		  }	
+	}
+
+	//Double Lines
+	%#{$namespace}-double-lines {
+		/* %double_lines  */
+		//border-top: 4px double $font-color;
+		//border-bottom: 4px double $font-color;
+		border-top: 4px double map-get($bb-colors, 'font');
+		border-bottom: 4px double map-get($bb-colors, 'font');
+	}
+	%#{$namespace}-double-lines--bottom {
+		/* %double_lines--bottom  */
+		//border-bottom: 4px double $font-color;
+		border-bottom: 4px double map-get($bb-colors, 'font');
+	}
+	%#{$namespace}-double-lines--top {
+		/* %double_lines--top  */
+		//border-top: 4px double $font-color;
+		border-top: 4px double map-get($bb-colors, 'font');
+	}
+}
+
+//* Gradients */
+// Gradients removed, now use Bourbon http://bourbon.io/
+$bb-test-texture: false!default;
+@if ($bb-test-texture == true) {
+	/* Texture Tests */
+	.#{$namespace}-border--accent-color {
+		@extend %#{$namespace}-border--accent-color;
+	}
+	.#{$namespace}-border--accent-color2 {
+		@extend %#{$namespace}-border--accent-color2;
+	}
+	.#{$namespace}-brand-round {
+		@extend %#{$namespace}-brand-round;
+	}
+	.#{$namespace}-fade {
+		@extend %#{$namespace}-fade;
+	}
+	.#{$namespace}-fade--rev {
+		@extend %#{$namespace}-fade--rev;
+	}
+	.#{$namespace}-double-lines {
+		@extend %#{$namespace}-double-lines;
+	}
+	.#{$namespace}-double-lines--bottom {
+		@extend %#{$namespace}-double-lines--bottom;
+	}
+	.#{$namespace}-double-lines--top {
+		@extend %#{$namespace}-double-lines--top;
+	}
+}

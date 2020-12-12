@@ -1,0 +1,150 @@
+/********************  Theme / Pages / PROJECTS  ******************/
+
+.projects--see-below {
+	padding: 0 2rem;
+	margin: 0;
+}
+
+.projects__list, .projects__list.ab-block-container {
+	margin: 0 auto;
+	background-color: black;
+	overflow: auto;
+	padding: 0 2rem;
+	//padding: 0rem 2rem!important;
+	
+	
+	.ab-container-content {
+		padding: 1rem;
+		overflow: auto;
+		background-color: $backgroundColor;
+		margin: 2rem auto!important;
+		//max-width: $maxWidth!important;
+		
+		
+	}
+	
+	.projects__project_item {
+		@include media( '<782px' ){
+			.wp-block-column {
+				flex-basis: 100%;
+			}
+		}
+	
+		@include media( '>=783px' ){
+			padding: 2rem;
+			flex-wrap: wrap;
+			&:nth-child(odd) {
+				width: 50%;
+				float: left;
+			}
+			&:nth-child(even) {
+				width: 50%;
+				float: right;
+			}
+			.wp-block-column {
+			    flex-basis: 100%;
+			}
+		}
+		
+		@include media( '>=1500px' ){
+			flex-wrap: nowrap;
+			.wp-block-column {
+				flex-basis: 50%;
+			}
+		
+		}
+	
+	
+		.wp-block-column {
+			&:not(:last-child) {
+				margin-right: 0;
+			}
+			
+		}
+		.project_categories {
+			font-size: 0.9rem;
+			font-style: italic;
+			color: $accentColor;
+		}
+	}
+	@include media( '<900px' ) {
+		display: block;
+	}
+	@include media( '>=900px' ) {	
+		> div {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
+
+.projects__featured_item {
+	
+	background-color: white;
+	padding: 1rem;
+	margin: 2%;
+	a {
+		text-decoration: none;
+		border-bottom: thin solid transparent;
+		&:hover {
+			border-bottom: thin solid transparent;
+			
+		}
+	}
+	
+	img {
+		width: 100%!important;
+		max-width: 100%!important;
+		transition: all 0.5s ease;
+	}
+	h3 {
+		transition: all 0.5s ease;
+		font-size: 1.15rem;
+		
+	}
+	&:hover {
+		background-color: $backgroundColor;
+		img, { //.uagb-ifb-title-wrap {
+			transform: scale( 1.1 );
+		}
+		h3 {
+			
+		}
+	}
+	@include media( '>900px' ) {
+		flex: 1;
+		width: 24%;
+	}
+	
+	@include media( '<900px' ) {
+	
+	}
+}
+
+.projects__project_image {
+	width: 100%;
+	a {
+		display: block;
+		text-decoration: none;
+		border-bottom: thin solid transparent;
+		&:hover {
+			border-bottom: thin solid;
+		}
+	}
+	img {
+		width: 100%;
+	}
+}
+
+.projects__project_title {
+	@extend .h2;
+	line-height: 1.1em;
+	font-size: 1.75rem;
+}
+
+.project__gallery {
+	figure, img {
+		width: 100%;
+		height: auto;
+	}
+}

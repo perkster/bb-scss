@@ -1,0 +1,28 @@
+/************ Bear Bones / Plugins / CONTACT FORM 7 ***********/
+
+//Props to http://chriswharton.me/2013/07/contact-form-7-custom-styling/ for the good styling
+//
+@if ($bb-plugins-contact-form-7 == true) {
+	.screen-reader-response {
+		@extend %bb-accessibility;
+	}
+
+	.wpcf7-validation-errors, .wpcf7-mail-sent-ng, .wpcf7-mail-sent-ok ,  {
+		@extend %bb-islet;
+	}
+
+	//Error
+	.wpcf7-validation-errors, .wpcf7-mail-sent-ng, span.wpcf7-not-valid-tip {
+		@include bb_colorMap($map-name : 'light-red', $border-width: thin, $border-style: solid, $border-important : !important);
+		font-weight: normal;
+	}
+
+	//Success
+	.wpcf7-mail-sent-ok {
+		@include bb_colorMap($map-name : 'light-green', $border-width: thin, $border-style: solid);
+	}
+	.wpcf7-response-output, .wpcf7-not-valid-tip {
+		text-transform: none;
+		font-size: 1rem;
+	}
+}

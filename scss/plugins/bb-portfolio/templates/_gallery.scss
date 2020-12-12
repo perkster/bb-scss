@@ -1,0 +1,18 @@
+/************ Plugins / BB PORTFOLIO / Templates / GALLERY  ***********/
+
+%bb-portfolio-gallery-style--thumbnails, %bb-portfolio-gallery-style--thumbnails-only  {
+	@extend %bb-ul--none;
+	li {
+		display: inline-block;
+		margin-left: map-get($bb-portfolio, 'gallery-item-margin-left');
+		&:first-of-type {
+			margin-left: 0;
+		}
+	}
+}
+
+$bb-gallery-style : map-get( $bb-portfolio, 'gallery-style');
+
+.bb-portfolio-gallery-style--#{$bb-gallery-style} {
+	@extend %bb-portfolio-gallery-style--#{$bb-gallery-style};
+}

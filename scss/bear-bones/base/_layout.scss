@@ -1,0 +1,57 @@
+/********************  Bear Bones / Objects / LAYOUT ******************/
+
+//@mixin bb-full-width-inner ( $percentage : $full-width-percentage,  $max-width : $full-width-max ) {
+@mixin bb-full-width-inner ( $percentage : map-get($bb-layout, full-width-percentage),  $max-width : map-get($bb-layout, full-width-max)) {
+	margin: 0 auto;
+	@include media(">#{$max-width}"){
+		width: $percentage;
+		max-width: $max-width!important;
+	}
+}
+
+@mixin bb_fullWidthComponents ($components : null ) {
+	
+}
+
+@if ($bb-base-layout == true) {
+
+	%#{$namespace}-full-width-wrapper,  %#{$namespace}-full-width--wrapper, .main-content-wrapper--full-width {
+		width: 100%;
+		@if ($bb-base-clearfix == true) {
+			@extend %bb-cf;
+		}
+	}
+	%#{$namespace}-full-width-inner,  %#{$namespace}-full-width--inner {
+		
+		@include bb-full-width-inner();
+	}
+
+	@if (map-get($bb-layout, 'use')) {
+		@each $class, $wrapper in map-get($bb-layout, 'components') {
+			.#{$wrapper} {
+				@extend %#{$namespace}-full-width-wrapper;
+			}
+			.#{$class} {
+				@extend %#{$namespace}-full-width-inner;
+			}
+		}
+	}
+	
+	%#{$namespace}-abs-center {
+		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+	}
+
+}
+
+@if ($bb-test-layout == true) {
+	.layout-test-wrapper {
+		@extend %bb-full-width-wrapper;
+	}
+	.layout-test-inner {
+		@extend %bb-full-width-inner;
+	}
+}

@@ -1,0 +1,131 @@
+/********************  Bear Bones / Objects / BUTTONS ******************/
+
+// This is a blend between the beautons of inuit.css (http://csswizardry.com/beautons/), 
+// Andy Clark 320 and up (http://stuffandnonsense.co.uk/projects/320andup/), 
+// Create a themable button set (http://blog.teamtreehouse.com/create-a-themable-button-set-with-sass), 	
+// as well as my own additions
+
+// Usage:
+// A predefined button map will overwrite any variables passed in.
+// To create a custom button set, you will need to pass in all variables without a button map name. 
+// Theoretically this should be ok since the base buttons are set
+
+@mixin bb_setButton ( 
+  $map-name: null,
+  $bgc: null, 
+  $border-color: null, 
+  $color: null,
+  $line-height: null,
+  $padding-vertical: null,
+  $padding-horizontal: null,
+  $push: null,
+  $radius: null,
+  $size: null,
+  $trans: null,
+  $hover-color: null,
+  $hover-bgc: null,
+  $hover-border-color: null,
+  $inline: 'true') {
+
+// @TODO: Recreate push feature  
+	@if $map-name {
+		@if(not($bgc)) { 
+			$bgc : map-deep-get($bb-buttons, $map-name, 'bgc'); 
+		}
+		@if(not($border-color)) { 
+			$border-color: map-deep-get($bb-buttons, $map-name, 'border-color');
+		}
+		@if(not($color)) { 
+			$color: map-deep-get($bb-buttons, $map-name, 'color');
+		}
+		@if(not($line-height)) { 
+			$line-height: map-deep-get($bb-buttons, $map-name, 'line-height');
+		}
+		@if(not($padding-vertical)) { 
+			$padding-vertical: map-deep-get($bb-buttons, $map-name, 'padding-vertical');
+		}
+		@if(not($padding-horizontal)) { 
+			$padding-horizontal: map-deep-get($bb-buttons, $map-name, 'padding-horizontal');
+		}
+		@if(not($push)) { 
+			$push: map-deep-get($bb-buttons, $map-name, 'push');
+		}
+		@if(not($radius)) { 
+			$radius: map-deep-get($bb-buttons, $map-name, 'radius');
+		}
+		@if(not($trans)) { 
+			$trans: map-deep-get($bb-buttons, $map-name, 'trans');
+		}
+		@if(not($hover-color)) { 
+			$hover-color: map-deep-get($bb-buttons, $map-name, 'hover', 'color');
+		}
+		@if(not($hover-bgc)) { 
+			$hover-bgc: map-deep-get($bb-buttons, $map-name, 'hover', 'bgc');
+		}
+		@if(not($hover-border-color)) { 
+			$hover-border-color: map-deep-get($bb-buttons, $map-name, 'hover', 'border-color');
+		}
+	}    
+	
+    background-color: $bgc;
+	@if $border-color {
+		border: .094em solid;
+		border-color: $border-color;
+	} @else {
+		border: 0;
+	}
+	border-radius: $radius;
+	color: $color;
+	line-height: $line-height;
+    padding: $padding-vertical $padding-horizontal;
+	transition: $trans;
+	&:hover {
+		color: $hover-color;
+		background-color: $hover-bgc;
+		@if $hover-border-color {
+			border: .094em solid;
+			border-color: $hover-border-color;
+		} @else {
+			border: 0;
+		}
+	}
+	@if($inline == 'true' ) {
+		display: inline-block;
+	} @else {
+		display: block;
+	}
+}
+
+@if $bb-objects-buttons == true{
+
+	%#{$namespace}-btn, %#{$namespace}-button {
+		@include bb_setButton(
+			$map-name: 'primary'
+		);
+	}
+	
+	button,
+	.button,
+	//input[type="button"],
+	//input[type="reset"],
+	//input[type="submit"] 
+	{
+		@extend %#{$namespace}-btn;
+	}
+	
+	%#{$namespace}-btn--inline {
+		vertical-align:baseline;
+		font-size:inherit;
+		line-height:inherit;
+		padding: map-deep-get($bb-buttons, 'inline', 'padding-vertical') map-deep-get($bb-buttons, 'inline', 'padding-horizontal');
+	}
+	span.button {
+		@extend %#{$namespace}-btn--inline;
+	}	
+}
+
+
+@if $bb-test-buttons == true {
+	
+	
+}

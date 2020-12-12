@@ -1,0 +1,119 @@
+/********************  Theme / Plugins / BB OWL CAROUSEL  ******************/
+.bb-owl-carousel-wrapper--partner-logos, .bb-owl-carousel-wrapper--fellowship-logos {
+  padding: 0 4em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bb-owl-carousel--partner-logos,  .bb-owl-carousel--fellowship-logos{
+	img {
+	  max-height: 100px;
+	}
+
+	.bb-owl__item {
+	  height: 100px;
+	  padding: 0.25rem 0.5rem;
+	}
+
+	
+
+	.owl-prev {
+	  float: left;
+	  margin-left: -1em;
+	  
+	  //@include bb_fontAwesome($place : 'before', $icon : 'chevron-left', $padding-right : 0.25em, $top : 0.75rem, $position : (absolute));
+	  &:before {
+		padding-right: 0.25em;
+			position: absolute;
+			top: 0.75rem;
+		}
+	  
+	}
+
+	.owl-prev, .owl-next {
+		background-color: #fff !important;
+		/*span {
+			@include bb-accessibility();
+		}*/
+	}
+
+	.owl-next {
+		float: right;
+		//margin-right: -0.25em;
+		//@include bb_fontAwesome($place : 'before', $icon : 'chevron-right', $padding-left : 0.25em, $top : 0.75rem, $position : (absolute));
+		&:before {
+			//content: '\e825';			
+			//font-family: "revicons";
+			padding-left: 0.25em;
+			position: absolute;
+			top: 0.75rem;
+			
+		}
+		
+	}
+}
+.alumni-spotlight-home-carousel {
+	.owl-buttons {
+		color: $_lightGrey;
+		position: absolute;
+		top: -1.5em;
+		margin: 0 auto;
+		text-align: center;
+		width: 100%;
+	}
+	.owl-prev {
+		margin-right: 0.75rem;
+	}
+	.owl-next {
+		margin-left: 0.75rem;
+	}
+	
+
+}
+.owl-buttons {
+	  font-size: 51px;
+}
+.owl-prev, .owl-next {
+
+	span {
+		@include bb-accessibility();
+	}
+	
+}
+.owl-prev {
+	&:before {
+		content: '\e824';			
+		font-family: "revicons";
+	  }
+}
+.owl-next {
+	&:before {
+			content: '\e825';			
+			font-family: "revicons";
+		}
+}
+/*
+.owl-prev:before {
+  content: "?";
+  color: #7c7c7c;
+  font-family: FontAwesome;
+  padding-right: 0.25em;
+  position: absolute;
+  top: 15px;
+}
+
+.owl-next {
+  margin-right: -0.25em;
+  float: right;
+  background-color: #fff;
+}
+
+.owl-next:after {
+  content: "?";
+  color: #7c7c7c;
+  font-family: FontAwesome;
+  padding-right: 0.25em;
+  position: absolute;
+  top: 15px;
+}
+*/

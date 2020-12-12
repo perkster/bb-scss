@@ -1,0 +1,98 @@
+/************ Theme / Objects / FOOTER ***********/
+$footerFontSize : 1rem;
+	.footer-widgets-inner {
+		@extend .full-page-inner;
+		.footer-widget {
+			float: right;
+			
+		}
+		section {
+			display: inline-block;
+			text-align: center;
+			vertical-align: top;
+			//margin-top: 1rem;
+			margin-bottom: 1rem;
+			@include media('>=smartphone') {
+				&:first-of-type {
+					text-align: left;
+				}
+				&:last-of-type {
+					text-align: right;
+					img {
+						display: inline-block;
+					}
+				}
+			}
+			@include media('<smartphone') {
+				width: 100%;
+			}
+		}
+	}
+	.block--footer {
+		
+		
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		
+		@extend %bb-cf;
+		
+		background-color: $footerColor;
+		
+		
+		a {
+			color: lighten( $fontColor, 10% );
+			&:hover {
+				color: $accentColor;
+			}
+		}
+		
+		p {
+				margin-bottom: 0;
+		}
+		
+		ul {
+			list-style-type: none;
+			margin: 0;
+		}
+		li {
+			margin: 0;
+			font-size: 0.95rem;
+		}
+		
+		
+		.footer-widget__title {
+			font-family: $normal-font;
+			font-size: $footerFontSize;
+			text-transform: uppercase;
+			margin-bottom: 0;
+		}
+		
+		
+		
+		.menu-item--home {
+			display: none;
+		}
+		.menu-main-menu {
+			list-style:none;
+			text-align: left;
+			a {
+				text-transform: uppercase;
+				font-size: $footerFontSize;
+			}
+		}
+		.menu-main-menu, .widget-3 {
+			a {
+				font-weight: normal;
+				font-family: $normal-font;
+			}
+		}
+		
+		.widget-3 {
+			font-size: 0.9rem;
+		}
+	}
+
+.copyright-text {
+	font-size: small;
+}

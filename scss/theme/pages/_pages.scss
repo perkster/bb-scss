@@ -1,0 +1,45 @@
+/********************  Theme / Pages / PAGES  ******************/
+.page__featured-image-wrapper {
+	img {
+		width: 100%;
+	}
+}
+
+.featured-image-as-bg {
+	.content {
+		width: 80%;
+		margin: 2rem 10%;
+		padding: 2rem;
+		background-color: rgba( $scriptBackground, 0.72) ;
+		height: 75vh;
+		position: relative;
+		main {
+			max-height: 100%;
+			@include media ( '>menu-bp' ) {
+				overflow: auto;
+			}
+		}
+	}
+
+}
+
+.page {
+	.product-item {
+		.woocommerce-Price-amount {
+			@extend h3;
+		}
+	}
+	.product-item--willa {
+		.woocommerce-Price-amount {
+			font-size: 1.25rem;
+		}
+		.add_to_cart_inline {
+			margin-top: 0.25rem;
+			a {
+				margin-top: 0.5rem;
+			}
+		}
+		
+	}
+
+}

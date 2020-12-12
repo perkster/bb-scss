@@ -1,0 +1,72 @@
+/********************  Theme / Plugins / MARKET PRESS  ******************/
+
+.mp_product_tab_labels {
+	//@extend .accent-color;
+	a {
+		@extend .h3;
+		margin: 0;
+		padding: 0!important;
+	}	
+}
+
+.mp_single_product_extra {
+    background-color: #F2F2F2;
+    padding: 1rem;
+	border: thin solid $accentColor;
+}
+
+
+.mp_products-list {
+	@include media('>=tablet'){
+		.mp_product_item {
+			display: table-cell;
+			width: 33%;
+			vertical-align: top;
+		}
+	}
+}
+
+.mp_button {
+	@extend %bb-button;
+	&:hover {
+		background-color: $accentColorHover;
+		border: thin solid $accentColorHover;
+		color: white;
+	}
+}
+
+.mp_button-continue-shopping, .mp_button-checkout {
+	&:hover {
+		background-color: $accentColorHover!important;
+		border: thin solid $accentColorHover!important;
+		color: white!important;
+	}
+}
+
+.mp_button-continue-shopping {
+	background-color: #fff;
+	border: thin solid $accentColor;
+	color: $accentColorHover
+}
+.mp_button-checkout {
+	background-color: $accentColor;
+	border: thin solid $accentColor;
+}
+
+.mp_mini_cart {
+	top: 5rem;
+	border: thin solid $accentColor;
+}
+
+.mp_mini_cart_content {
+	background-color: #fff;
+	h3 {
+		font-size: 1.25rem;
+	}
+}
+
+.mp_cart_item_content {
+	> a {
+		display: none;
+	}
+}

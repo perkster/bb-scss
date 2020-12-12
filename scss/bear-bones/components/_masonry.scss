@@ -1,0 +1,45 @@
+/********************  Bear Bones / Components / MASONRY ******************/
+//http://w3bits.com/css-masonry/
+//http://designshack.net/articles/css/masonry/
+
+@if ($bb-components-masonry == true) {
+
+	%#{$namespace}-masonry {
+		column-gap: map-get($bb-masonry, 'gap' );
+		@if(map-get($bb-masonry, 'desk-wide') == true){
+			@include media('<=desk-wide') {
+				$columns : map-get($bb-masonry, 'desk-wide' );
+				column-count: $columns;
+				
+			}
+		}
+		@if(map-get($bb-masonry, 'desk') == true){
+			@include media('<=desk') {
+				$columns : map-get($bb-masonry, 'desk' );
+				column-count: $columns;
+			}
+		}
+		@if(map-get($bb-masonry, 'lap') == true){
+			@include media('<=lap') {
+				$columns : map-get($bb-masonry, 'lap' );
+				column-count: $columns;
+			}
+		}
+		@if(map-get($bb-masonry, 'tablet') == true){
+			@include media('<=tablet') {
+				$columns : map-get($bb-masonry, 'tablet' );
+				column-count: $columns;
+			}
+		}
+		@if(map-get($bb-masonry, 'phone') == true){
+			@include media('<=tablet') {
+				$columns : map-get($bb-masonry, 'phone' );
+				column-count: $columns;
+			}
+		}
+	}
+	
+	%#{$namespace}-masonry__item {
+		 display: inline-block;
+	}
+}

@@ -1,0 +1,109 @@
+/************ Theme / Objects / SOCIAL LINKS ***********/
+$socialLinkSize : 1rem;
+.social-links-wrapper {
+	//@extend .full-width-wrapper.green;
+}
+.social-links-inner {
+	@extend .full-width-inner;
+}
+.social-links {	
+	text-align: center;
+	section {
+		display: inline-block;
+	}
+}
+.social__link {
+	//@extend %#{$namespace}-fa-base;
+	border: 0;
+	font-size: $socialLinkSize;
+}
+//Social links must be done before brand set because need to update FA library in scss plugins
+.social-twitter, .bb-twitter {
+	a {
+		@include bb_fontAwesome($place : 'after', $icon : 'twitter', $padding-right : 0.25em, $top : 0, $position: (relative));
+		
+	}
+}
+.social-facebook, .bb-facebook {
+	a {
+		@include bb_fontAwesome($place : 'after', $icon : 'facebook', $padding-right : 0.25em, $top : 0, $position: (relative));
+		
+	}
+}
+.social-yelp, .bb-yelp {
+	a {
+		@include bb_fontAwesome($place : 'after', $icon : 'yelp', $padding-right : 0.25em, $top : 0, $position: (relative));
+		
+	}
+}
+.social-flickr, .bb-flickr {
+	a {
+		@include bb_fontAwesome($place : 'after', $icon : 'flickr', $padding-right : 0.25em, $top : 0, $position: (relative));
+		
+	}
+}
+.social-instagram, .bb-instagram {
+	a {
+		@include bb_fontAwesome($place : 'after', $icon : 'instagram', $padding-right : 0.25em, $top : 0, $position: (relative));
+		
+	}
+}
+.social-youtube, .bb-youtube {
+	a {
+		@include bb_fontAwesome($place : 'after', $icon : 'youtube', $padding-right : 0.25em, $top : 0, $position: (relative));
+		
+	}
+}
+
+.social-mail, .bb-mail {
+	a {
+		@include bb_fontAwesome($place : 'after', $icon : 'envelope', $padding-right : 0.25em, $top : 0, $position: (relative));
+		
+	}
+}
+
+.social-pinterest, .bb-pinterest {
+	a {
+		@include bb_fontAwesome($place : 'after', $icon : 'pinterest', $padding-right : 0.25em, $top : 0, $position: (relative));
+		
+	}
+}
+
+
+
+
+.menu-social {
+	@extend %bb-ul--inline;
+	@extend %bb-navbar--justified;
+	display: inline-block;
+	margin: 0;
+	//padding-left: 1em;
+	
+	li {
+		//@include bb_socialColors( 'background-color', false, 'bb' ); 
+		//margin-bottom: 0;
+		margin: 0 0.25rem;
+		border-bottom: medium solid transparent;
+		&:hover {
+			//border-bottom: thin solid white;
+			//border-color: white;
+		}
+	}
+	a {
+		//color: white;
+		width: $socialLinkSize;
+		height: $socialLinkSize;
+		text-align: center;
+		padding-top: 0.3em;
+		&:hover {
+			//color: white;			
+		}
+		&:after {
+			font-family: "Font Awesome 5 Brands";
+		}
+	}
+	span {
+		@extend %bb-accessibility;
+	}
+}
+

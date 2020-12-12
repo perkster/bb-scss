@@ -1,0 +1,37 @@
+/************ Theme / Components / vCard ***********/
+
+@mixin vcard_inline_address( $hide_country : true, $text_after : false, $hide_extended_address : true ) {
+	.vcard {
+		.adr {
+			.street-address, .extended-address, .locality, .region, .postal-code, .country-name {
+				display: inline-block;
+			}
+			@if ($hide_country == true) {
+				.country-name {
+					display: none;
+				}
+			}
+			@if ($hide_extended_address == true) {
+				.extended-address {
+					display: none;
+				}
+			}
+			
+			@if ( $text_after ) {
+				.street-address, .extended-address, .locality, .region  {
+					&:after {
+						content: $text_after;
+					}
+				}
+			}
+			
+			@if ($text_after == true and $hide_country == false) {
+				.postal-code {
+					&:after {
+						content: $text_after;
+					}
+				}
+			}
+		}
+	}
+}

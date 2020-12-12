@@ -1,0 +1,89 @@
+/************ Theme / Objects / INFIELD LABEL JS ***********/
+/*https://github.com/ten1seven/infieldLabel/blob/master/jquery.infieldLabel.css */
+/* infieldLabel styles */
+.infield-label {
+	display: block;
+	position: relative;
+}
+
+.infield-label label {
+	display: block;
+	//margin: map-get($bb-forms, 'placeholder-margin');;
+	margin: map-deep-get($bb-forms, 'forms', 'input', 'padding');
+	color : map-get($bb-forms, 'placeholder-color');
+	position: absolute;
+	z-index: 1;
+}
+
+
+.infield-label {
+	label {
+		cursor: text;
+		//font-size: 14px;
+		//padding: 0 10px;
+		position: absolute;
+		//white-space: nowrap;
+		//padding: 0.25em;
+		//z-index: 5000;
+		
+	}
+	input, textarea {
+		width: 100%;
+		display: block;
+	}
+}
+.infield-label.textarea.placeholder-focus {
+	label {
+		margin-top: -1em;
+	}
+}
+
+.placeholder-focus label {
+	//background-color: rgba(0, 0, 0, 0.85);
+	background-color: map-get($bb-forms, 'placeholder-focus-bgc')!important;
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+	   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+	        box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+	bottom: auto;
+	color: map-get($bb-forms, 'placeholder-focus-color')!important;
+	//line-height: 32px;
+	right: auto;
+	top: -1.5em;
+	@each $key, $value in map-get($bb-forms, 'print-infield') {
+		#{$key} : #{$value};
+	}
+	//transition: 100ms ease; 
+	//transition: map-get($bb-foundation, transition);
+	
+}
+
+.no-rgba .placeholder-focus label {
+	background-color: #111;
+}
+
+.placeholder-focus label:after {
+	border-top: 5px solid map-get($bb-forms, 'placeholder-focus-bgc');
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	bottom: -5px;
+	content: '';
+	display: block;
+	height: 0;
+	left: 10px;
+	position: absolute;
+}
+
+.no-rgba .placeholder-focus label:after {
+	border-top-color: #111;
+}
+
+.infield-label-image.placeholder-focus label {
+	top: -122px;
+}
+
+/*.placeholder-hide label {
+	bottom: auto;
+	left: -9999px;
+	right: auto;
+	top: -9999px;
+}*/

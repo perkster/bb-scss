@@ -1,0 +1,62 @@
+/************ Plugins / BB Social Share ***********/
+$bb-social-share-default: (
+	'span' : 'accessibility'
+)!default;
+$bb-social-share-custom: ()!default;
+$bb-social-share: map-extend($bb-social-share-default, $bb-social-share-custom, true);
+div.bb-social-share {
+	z-index: 99999;
+}
+ul.bb-social-share__list {
+	@extend %bb-ul--none;
+	//@extend %bb-ul--inline;
+}
+li.bb-social-share__item {
+	
+	text-align: center;
+	margin: 0 auto;
+	&:first-of-type {
+		margin-left: 0;
+	}
+}
+a.bb-social-share__link {
+	
+	&:hover {
+		//@include bb_socialColors( $attribute: 'background-color' );
+	}
+	i {
+		text-align: center;
+		display: table-cell;
+		vertical-align: middle;
+	}
+	span {
+		@if( map-get( $bb-social-share, 'span' ) == 'accessibility' ) {
+			@extend .accessibility;	
+		} @else {
+			display: table-cell;
+			padding: 0 0.25em;
+			color: $font-color;
+		}
+	}
+}
+
+@mixin bbSocialShare__inline ( $ml : 0.5em ) {
+	position: relative;
+	top: auto;
+	.bb-social-share__item  {
+		margin-left: $ml;
+	}
+	.bb-social-share__link, .bb-social-share__item  {
+		display: inline-block;
+	}
+}
+
+@mixin bbSocialShare__floatVertical (  ) {
+	position: fixed;
+	//top: $pt;
+	.bb-social-share__link  {
+		float: left;
+		display: inline-block;
+		
+	}
+}

@@ -1,0 +1,14 @@
+/************ Plugins / BB Portfolio ***********/
+$bb-portfolio-default: (
+	'gallery-style' : 'thumbnails',
+	'gallery-item-margin-left' : 1rem,
+)!default;
+$bb-portfolio-custom: ()!default;
+$bb-portfolio: map-extend($bb-portfolio-default, $bb-portfolio-custom, true);
+
+
+//**************** TEMPLATES ******************/
+//@import "plugins/bb-portfolio/templates/list";
+
+
+@import "templates/gallery";

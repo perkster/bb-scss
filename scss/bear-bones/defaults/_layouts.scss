@@ -1,0 +1,65 @@
+//*-------     Defaults / LAYOUTS ---------*/
+
+
+// ************* LAYOUTS ************* //
+
+// ------------- TOPBAR ------------- //
+$bb-layouts-topbar : true!default;
+$bb-test-topbar : false!default;
+$bb-topbar-default: (
+	'topbar':(
+		'bgc' : map-deep-get($bb-colors, 'topbar', 'bgc'),
+		'color' : map-deep-get($bb-colors, 'topbar', 'color'),
+		'full' : true,
+		'height' : $bb-base-line-height,
+		'link' : map-deep-get($bb-colors, 'topbar', 'link'),
+		'link--hover' : map-deep-get($bb-colors, 'topbar', 'link--hover'),
+		'navbar' : 'justified', //options: navbar, justified
+		'padding': null,
+		'size' : 1rem,
+		'submenu' : true,
+		'whitespace' : true
+	),
+	'second' : (
+		'bgc' : map-deep-get($bb-colors, 'second-topbar', 'bgc'),
+		'color' :  map-deep-get($bb-colors, 'second-topbar', 'color'),
+		'full' : true,
+		'height' : $bb-base-line-height,
+		'link' : map-deep-get($bb-colors, 'second-topbar', 'link'),
+		'link--hover' : map-deep-get($bb-colors, 'second-topbar', 'link--hover'),
+		'navbar' : 'justified', //options: navbar, justified
+		'padding' : null,
+		'size' : 1rem,
+		'submenu' : true,
+		'whitespace' : true,
+	)
+)!default;
+$bb-topbar-custom: ()!default;
+$bb-topbar: map-extend($bb-topbar-default, $bb-topbar-custom, true);
+
+// ------------- BLOG ------------- //
+$bb-layouts-blog : true!default;
+$bb-test-blog : false!default;
+$bb-blog-default: (
+	
+)!default;
+$bb-blog-custom: ()!default;
+$bb-blog-layouts: map-extend($bb-blog-default, $bb-blog-custom, true);
+
+// ------------- HEADER ------------- //
+$bb-layouts-header : true!default;
+$bb-test-header-layouts : false!default;
+$bb-layouts-header-default: (
+	
+)!default;
+$bb-layouts-header-custom: ()!default;
+$bb-header-layouts: map-extend($bb-layouts-header-default, $bb-layouts-header-custom, true);
+
+// ------------- SOCIAL ------------- //
+$bb-layouts-social : true!default;
+$bb-test-social-layouts : false!default;
+$bb-layouts-social-default: (
+	
+)!default;
+$bb-layouts-social-custom: ()!default;
+$bb-social-layouts: map-extend($bb-layouts-social-default, $bb-layouts-social-custom, true);

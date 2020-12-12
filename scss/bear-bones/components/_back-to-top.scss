@@ -1,0 +1,45 @@
+/********************  Bear Bones / Components / BACK TO TOP ******************/
+
+
+@if ($bb-components-back-to-top == true) {
+	.back-to-top {
+		//position: fixed;
+		position: map-get($bb-back-to-top, 'position');
+		bottom: map-get($bb-back-to-top, 'bottom');
+		right: map-get($bb-back-to-top, 'right');
+		left: map-get($bb-back-to-top, 'left');
+		top: map-get($bb-back-to-top, 'top');
+		//right: 2%;
+		//top: 65%;	
+		z-index: 9000;
+		opacity: 0;
+		span {
+			@if( map-get($bb-back-to-top, 'accessibility') ) {
+				@extend .accessibility;
+			}
+		}
+		i {
+			//@include bb_fontAwesome($icon : 'caret-square-o-up', $font-size : 5em);
+			//color: white;
+			color: map-deep-get($bb-back-to-top, 'icon', 'color');
+			//background-color: gray;
+			background-color: map-deep-get($bb-back-to-top, 'icon', 'bgc');
+			//font-size: 3em;
+			font-size: map-deep-get($bb-back-to-top, 'icon', 'font-size');
+			//padding: 0.75rem;
+			padding: map-deep-get($bb-back-to-top, 'icon', 'padding');
+			border-radius: map-deep-get($bb-back-to-top, 'icon', 'radius');
+		}
+		&:hover {
+			i {
+				//background-color: $nobel;
+				background-color: map-deep-get($bb-back-to-top, 'icon', 'hover-bgc');
+				color: map-deep-get($bb-back-to-top, 'icon', 'hover-color');
+			}
+		}
+		&.visible {
+			@extend %#{$namespace}-animation--fade-in;
+		}
+	}
+	
+}

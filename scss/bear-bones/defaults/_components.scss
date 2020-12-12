@@ -1,0 +1,166 @@
+//*-------     Defaults / COMPONENTS ---------*/
+
+/*
+// ------------- ?? ------------- //
+$bb-components-?? : true!default;
+$bb-test-?? : false!default;
+$bb-??-default: (
+)!default;
+$bb-??-custom: ()!default;
+$bb-??: map-extend($bb-??-default, $bb-??-custom, true);
+*/
+
+
+
+// ************* COMPONENTS  ************* //
+
+// ------------- ACCORDION ------------- //
+$bb-components-accordion : true!default;
+$bb-test-accordion : false!default;
+$bb-accordion-default: (
+)!default;
+$bb-accordion-custom: ()!default;
+$bb-accordion: map-extend($bb-accordion-default, $bb-accordion-custom, true);
+
+// ------------- ANIMATION ------------- //
+$bb-components-animation : true!default;
+$bb-test-animation : false!default;
+$bb-animation-default: (
+)!default;
+$bb-animation-custom: ()!default;
+$bb-animation: map-extend($bb-animation-default, $bb-animation-custom, true);
+
+// ------------- BACK TO TOP ------------- //
+$bb-components-back-to-top : true!default;
+$bb-test-back-to-top : false!default;
+$bb-back-to-top-default: (
+	'position' : fixed,
+	'right' : 2%,
+	'left' : null,
+	'bottom' : null,
+	'top' : 65%,
+	'accessibility' : true,
+	'icon': (
+		'color' : white,
+		'bgc' : gray,
+		'font-size' : 3em,
+		'padding' : 0.25em,
+		'radius' : 10px,
+		'hover-bgc' : $nobel,
+		'hover-color' : null,
+	)
+)!default;
+$bb-back-to-top-custom: ()!default;
+$bb-back-to-top: map-extend($bb-back-to-top-default, $bb-back-to-top-custom, true);
+
+// ------------- HEADERS ------------- //
+$bb-components-headers : true!default;
+$bb-test-headers : false!default;
+$bb-headers-default: (
+	'icon':(
+		'color' : $gray,
+		'left':(
+			'icon-size': 1.5em,
+			'heading-size' : 1.5em,
+			'subheading-size' : 1em,
+			'p-size' : 0.9em,
+			'vertical-align' : middle,
+			'padding-left': 0.75*$bb-base-spacing-unit
+		),
+		'center':(
+			'icon-size' : 2em,
+			'heading-size' : 1.5em,
+			'subheading-size' : 1em,
+			'p-size' : 0.9em,
+		),
+	),
+	'image':(
+		'left':(
+			'heading-size' : 1.5em,
+			'subheading-size' : 1em,
+			'p-size': 0.9em,
+			'margin-top': 0.165em,
+			'width' : 2.5em,
+			'vertical-align' : middle,
+		),
+		'center':(
+			'heading-size' : 1.5em,
+			'subheading-size' : 1em,
+			'p-size': 0.9em,
+			'margin-top': 0.165em,
+			'width' : 2.5em,
+			'vertical-align' : middle
+		),
+	)
+)!default;
+$bb-headers-custom: ()!default;
+$bb-headers: map-extend($bb-headers-default, $bb-headers-custom, true);
+
+// ------------- MASONRY ------------- //
+$bb-components-masonry : true!default;
+$bb-test-masonry : false!default;
+$bb-masonry-default: (
+	'mobile' : null,
+	'tablet' : 2,
+	'lap' : 3,
+	'desk' : 4,
+	'desk-wide' : 6,
+	'gap' : 1em
+)!default;
+$bb-masonry-custom: ()!default;
+$bb-masonry: map-extend($bb-masonry-default, $bb-masonry-custom, true);
+
+
+// ------------- REVOLUTION SLIDER ------------- //
+$bb-components-revslider : true!default;
+$bb-test-revslider : false!default;
+$bb-revslider-default: (
+	'bullet':(
+		'bgc' : white,
+		'bgc--selected' : $gray	,
+		'width' : 1em,
+		'height' : 1em,
+		'border' : 0,
+		'padding' : null,
+		'margin' : null,
+		'radius' : null,
+		'style' : 'square',
+	)
+)!default;
+$bb-revslider-custom: ()!default;
+$bb-revslider: map-extend($bb-revslider-default, $bb-revslider-custom, true);
+
+// ------------- SEARCH ------------- //
+$bb-components-search : true!default;
+$bb-test-search : false!default;
+$bb-search-default: (
+)!default;
+$bb-search-custom: ()!default;
+$bb-search: map-extend($bb-search-default, $bb-search-custom, true);
+
+
+// ------------- SOCIAL ------------- //
+
+$bb-components-social : true!default;
+$bb-test-social : false!default;
+$bb-social-default: (
+	'bgc': map-deep-get($bb-colors, 'accent-color', 'bgc'),
+	'bgc--hover': 'social',
+	'border' : null,
+	'border-color--hover' : null,
+	'color' : white,
+	'color--hover': white,
+	'ml' : 0.5em,
+	'width' : null,
+	'height' : null,
+	'radius' : null,
+	'font-size' : 1em,
+	'padding' : null,
+	'span' : 'accessibility',
+)!default;
+$bb-social-custom: ()!default;
+$bb-social: map-extend($bb-social-default, $bb-social-custom, true);
+
+
+//* Form variables NOW ON _defaults/html */
+

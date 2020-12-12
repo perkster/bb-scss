@@ -1,0 +1,63 @@
+@if $bb-objects-media-stubornella == true{
+
+/********************  Bear Bones / Objects / MEDIA STUBORNELLA ******************/
+	
+	//** Place any image- and text-like content side-by-side, as per: stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code */
+	
+	%bb-media { }
+	%bb-media, %bb-media__body {
+		overflow:hidden; _overflow:visible; zoom:1;
+	}
+	%bb-media__img, %bb-media__object, %bb-media__image {
+		float:left; 
+		margin-right: $bb-base-spacing-unit;
+		&:nth-child(n){
+			display:block;
+		}
+	}
+	%bb-media__img--rev,%bb-media__object--rev {float:right; margin-left: $bb-base-spacing-unit;}
+
+    //** `.img`s in `.islet`s need an appropriately sized margin.  */
+	%bb-media__img--islet {
+    //.islet .media__img, .islet .media__object{
+        margin-right:$bb-base-spacing-unit--islet;
+    }	
+}//*endif */
+
+@mixin bb-media{
+	overflow:hidden; _overflow:visible; zoom:1;
+}
+
+@mixin bb-media__image{
+	float:left; 
+	margin-right: $bb-base-spacing-unit;
+	&:nth-child(n){
+		display:block;
+	}	
+}
+@mixin bb-media__image--rev{
+	float:right; 
+	margin-left: $bb-base-spacing-unit;
+	&:nth-child(n){
+		display:block;
+	}	
+}
+
+@mixin bb-media--odd-even{
+	
+	overflow:hidden; _overflow:visible; zoom:1;
+	display: block;
+	img {
+		&:nth-of-type(odd){
+			float:left; 
+			margin-right: $bb-base-spacing-unit;		
+		}
+		&:nth-of-type(even){
+			float:right; 
+			margin-left: $bb-base-spacing-unit;
+		}
+		&:nth-child(n){
+			display:block;
+		}
+	}
+}

@@ -1,0 +1,163 @@
+//*-------------- COLORS --------------*/
+
+//****************** MAIN COLORS ****************//
+$_darkerGrey : darken(#23282d, 10%);
+$_darkGrey : rgb(79,76,77);
+$_grey : rgb(124,124,124);
+//$_lightGrey : rgb(225,225,225);
+$_lightGrey : #E6E6E6;
+$_lighterGrey: #F6F6F6;
+
+$scriptBackground : #f4f4f4;
+$scriptFont : #39312c;
+$scriptFooter : #f4f4f4;
+$scriptFooterFont : #292e34;
+
+$scriptBlue : #004368;
+$scriptBlueHover : #195577;
+$scriptBlueActive : #00283e;
+$scriptBlueDisabled : #002235;
+
+$scriptOrange : #ec7a08;
+$scriptOrangeHover : #f78716;
+$scriptOrangeActive : #e26d0f;
+$scriptOrangeDisabled : #bc6106;
+
+$scriptRed : #8b0000;
+$scriptRedHover : #A50000;
+$scriptRedActive : #720000;
+$scriptRedDisabled : #771414;
+
+$scriptBrown : #65574d;
+$scriptBrownHover : #564a42;
+$scriptBrownActive : #483e37;
+$scriptBrownDisabled : #483e37;
+
+$backgroundColor : $scriptBackground;
+
+$accentColor : $scriptBlue;
+$accentColorHover : $scriptBlueHover;
+//$accentColorHover : $accentColor;
+$accentColorLink : $scriptBackground;
+//$accentColorLinkHover : $_lighterGrey;
+$accentColorLinkHover : $scriptOrangeHover;
+
+$accentColor2 : $scriptOrange; 
+$accentColor2Hover : $scriptOrangeHover;
+
+
+$accentColor3 : $scriptRed;
+$accentColor3Hover : $scriptRedHover;
+
+$accentColor4 : $scriptBrown;
+$accentColor4Hover : $scriptBrownHover;
+
+$fontColor : $scriptFont;
+$font-color : $fontColor;
+
+$footerColor: $scriptFooter;
+$footerFontColor : $scriptFooterFont;
+//Assign colors to be used throughout website
+
+$menu--button : $accentColor2;
+
+$bb-colors-custom: (
+	'font': $fontColor,
+	'link' : $accentColor,
+	'link-hover': $accentColorHover,
+	'hr' : $_darkGrey,
+	'accent-color': ( 
+		'bgc': $accentColor, 
+		'border': $accentColorHover, 
+		'font': #fff, 
+		'link': $accentColorLink, 
+		'link-hover': $accentColorLinkHover
+	),
+	'accent-color2': ( 
+		'bgc': $accentColor2, 
+		'border': $accentColor2Hover, 
+		'font': #fff, 
+		'link': $charcoal, 
+		'link-hover': $nightRider 
+	),
+	'accent-color3': ( 
+		'bgc': $accentColor3, 
+		'border': $accentColor3Hover, 
+		'font': #fff, 
+		'link': $charcoal,
+		'link-hover': $nightRider 
+	),
+	//DON'T USE for menu... use in menu-responsive.scss
+	'menu':(
+		//'bgc': $accentColor,		
+		//'bgc' : white,
+		'bgc' : $scriptBackground,
+		'list':(
+			'bgc': null,
+			'border-color' : null,
+			'color': null,
+		),
+		'item':(
+			'bgc': null,
+			'border-color' : null,
+			'color': $fontColor,
+		),
+		'link': (
+			'bgc': null,
+			'border-color': transparent,
+			'color': $fontColor,
+		),
+		'link-hover': (
+			'bgc': $accentColor,
+			'border-color': null,
+			'color': white,
+		),
+	),
+	'submenu':(
+		'bgc' : $scriptBackground,
+		'list':(
+			'bgc': $scriptBackground,
+			'border-color' : null,
+			'color': null,
+		),
+		'item':(
+			'bgc': null,
+			'border-color' : null,
+			'color': white,
+		),
+		'link': (
+			'bgc': $scriptBackground,
+			'border-color': null,
+			'color': $fontColor,
+		),
+		'link-hover': (
+			'bgc': $scriptBackground,
+			'border-color': $accentColorHover,
+			'color': $accentColorHover,
+		),
+	),
+	
+	
+);
+/*
+$bb-buttons-custom: (
+	'primary' : (
+		'bgc' : $accentColor, //background-color
+		'color' : white,		
+		//'line-height' : $bb-base-spacing-unit,
+		//'padding-vertical' : 0.25em,
+		//'padding-horizontal' : 0.5em,
+		//'push' : null,
+		//'radius' : map-get($bb-brand, 'round'),
+		'radius' : 5px,
+		//'size' : 1em,
+		//'trans' : 0.2s ease-in-out,
+		//'trans' : null,
+		'hover' : (
+			'color' : white,
+			'bgc' : $accentColor,
+			'border-color' : $accentColor
+		)
+	),
+);*/
+

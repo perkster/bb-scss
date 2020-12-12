@@ -1,0 +1,54 @@
+//********************  Theme / Style / TYPOGRAPHY  ******************/
+$normal-font : ('Nuninto', Sans-serif);
+$heading-font : ("Abhaya Libre", Sans-serif);
+
+$bb-font-custom: (
+	'size': 18px,
+	'size--phone': 17px,
+	'size--tablet': 18px,
+	'family': $normal-font,
+	'line-height-ratio': 1.40,
+	//'type-scale': 'Perfect Fourth',
+	
+	'default-type-scale': (
+		h1:	3,
+		h2:	2.2,
+		h3:	2.35,
+		h4:	1.75,
+		h5:	1.25,
+		h6:	0.95,
+	),
+	//*Type Scale -  Uses the options on http://type-scale.com/ as well as an option for "defaults" as below*/
+	//To use a 'custom' scale, you must set type-scale to 'custom' and include the custom-type-scale sub map.
+	//Copy the 'default-type-scale' submap from the bear-bones/base/_defaults file and rename it
+	//'type-scale': 'Minor Third',
+	/*
+	'size': 17px,
+	'size--phone': 14px,
+	'size--tablet': 15px,
+	'family': Sans-serif,
+	'line-height-ratio': 1.25,
+	'type-scale': 'default',
+	'default-type-scale': (
+		h1:	2.25,
+		h2:	2,
+		h3:	1.5,
+		h4:	1.25,
+		h5:	0.9,
+		h6:	0.875,
+	),
+	'giga': 5,
+	'mega': 4,
+	'kilo': 3,
+	'lead': 1.125em,
+	'small': 0.75em,
+	'micro': 0.625em,
+	'subheading': 0.85em,
+	'subsup': 75%
+	*/
+);
+				 
+
+				 
+				 
+
